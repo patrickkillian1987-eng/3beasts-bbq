@@ -333,7 +333,8 @@ nav.ready .brand .flogo{opacity:1}
 .mcol h3{font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:clamp(2rem,3.4vw,3.4rem);line-height:1.1;margin:14px 0 26px}
 .mcol li{list-style:none;padding:13px 0;border-top:1px solid rgba(0,0,0,.14);font-size:1.02rem;display:flex;justify-content:space-between;gap:10px;transition:padding .4s var(--ease)}
 .mcol li:hover{padding-left:12px}
-.mcol li::after{content:"+";color:#8a8a86}
+.mcol li::after{content:"";flex:0 0 auto;width:8px;height:8px;margin-top:6px;background:linear-gradient(135deg,#ffbe46,#ff5c16);transform:rotate(45deg);transition:transform .4s var(--ease)}
+.mcol li:hover::after{transform:rotate(45deg) scale(1.5)}
 .menu-note{margin-top:40px;color:#5a5a56;font-size:.98rem}
 @media(max-width:1000px){.menu{grid-template-columns:1fr 1fr}.mcol:nth-child(2){border-right:0}.mcol:nth-child(3){padding-left:0}.mcol:nth-child(n+3){border-top:1px solid rgba(0,0,0,.18)}}
 @media(max-width:560px){.menu{grid-template-columns:1fr}.mcol{padding-left:0;border-right:0}.mcol:nth-child(n+2){border-top:1px solid rgba(0,0,0,.18)}}
