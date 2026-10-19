@@ -9,7 +9,7 @@
 <meta property="og:title" content="3Beasts BBQ – Catering vom Feuer">
 <meta property="og:description" content="Wir grillen. Ihr genießt. Catering mit echtem Feuer.">
 <meta property="og:image" content="assets/6.webp">
-<link rel="icon" href="assets/logo_color.png?v=4">
+<link rel="icon" href="assets/logo_color.png?v=5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -768,7 +768,7 @@ img{image-rendering:auto}
   <canvas id="introFx"></canvas>
   <div class="intro-glow"></div>
   <div class="intro-meta lab"><span>3Beasts BBQ</span><span>Catering vom Feuer</span></div>
-  <div class="intro-logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=4" alt="3Beasts BBQ"><img class="il-flame" src="assets/logo_flame.png?v=4" alt=""></div>
+  <div class="intro-logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=5" alt="3Beasts BBQ"><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""></div>
   <div class="intro-count"><span id="cnt">0</span><small>%</small></div>
   <div class="intro-btns show" id="introBtns">
     <button class="btn" id="enterQuiet" style="color:#fff;padding:14px 28px">Überspringen</button>
@@ -779,7 +779,7 @@ img{image-rendering:auto}
 <!-- ============ NAV ============ -->
 <nav id="nav">
   <div class="nav-in">
-    <a href="#top" class="brand"><span class="flogo" role="img" aria-label="3Beasts BBQ Logo"><img class="il-base" src="assets/logo_base.png?v=4" alt=""><img class="il-flame" src="assets/logo_flame.png?v=4" alt=""></span><span>3Beasts BBQ</span></a>
+    <a href="#top" class="brand"><span class="flogo" role="img" aria-label="3Beasts BBQ Logo"><img class="il-base" src="assets/logo_base.png?v=5" alt=""><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""></span><span>3Beasts BBQ</span></a>
     <ul class="links">
       <li><a href="#ueber-uns">Über uns</a></li>
       <li><a href="#kueche">Küche</a></li>
@@ -1145,7 +1145,7 @@ img{image-rendering:auto}
 <footer>
   <canvas class="foot-fire" id="footFire" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div class="foot-logo flogo rv" role="img" aria-label="3Beasts BBQ Logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=4" alt=""><img class="il-flame" src="assets/logo_flame.png?v=4" alt=""></div>
+    <div class="foot-logo flogo rv" role="img" aria-label="3Beasts BBQ Logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=5" alt=""><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""></div>
     <div class="foot-big" aria-hidden="true">3Beasts BBQ</div>
     <div class="foot-row lab">
       <div class="fl"><a href="#ueber-uns">Über uns</a><a href="#kueche">Küche</a><a href="#galerie">Galerie</a><a href="#pakete">Pakete</a><a href="#anfrage">Kontakt</a></div>
@@ -1210,7 +1210,7 @@ const SM_SPR=mkSprite([[0,'rgba(255,255,255,1)'],[1,'rgba(255,255,255,0)']]);
     // Logo fliegt in die Navigation, statt zu verschwinden
     const src=document.querySelector('.intro-logo img'),r=src.getBoundingClientRect();
     const padL=parseFloat(getComputedStyle(document.querySelector('.nav-in')).paddingLeft)||20,size=innerWidth<=700?58:64;
-    const c=src.cloneNode();c.src='assets/logo_color.png?v=4';c.className='';
+    const c=src.cloneNode();c.src='assets/logo_color.png?v=5';c.className='';
     c.style.cssText='position:fixed;z-index:310;left:'+r.left+'px;top:'+r.top+'px;width:'+r.width+'px;height:'+r.height+'px;object-fit:contain;transform-origin:0 0;pointer-events:none;transition:transform 1.5s cubic-bezier(.76,0,.24,1),filter 1.4s ease';
     document.body.appendChild(c); document.querySelector('.intro-logo').style.visibility='hidden';
     intro.classList.add('out'); document.body.classList.remove('lock'); window.scrollTo({top:0,behavior:'instant'});
