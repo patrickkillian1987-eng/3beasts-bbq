@@ -286,6 +286,13 @@ nav.ready .brand img{opacity:1}
 @media(max-width:1000px){.menu{grid-template-columns:1fr 1fr}.mcol:nth-child(2){border-right:0}.mcol:nth-child(3){padding-left:0}.mcol:nth-child(n+3){border-top:1px solid rgba(0,0,0,.18)}}
 @media(max-width:560px){.menu{grid-template-columns:1fr}.mcol{padding-left:0;border-right:0}.mcol:nth-child(n+2){border-top:1px solid rgba(0,0,0,.18)}}
 
+.drinks{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto;gap:clamp(20px,4vw,60px);align-items:center;margin-top:34px;padding:34px 0;border-top:2px solid var(--ink);border-bottom:1px solid rgba(0,0,0,.18)}
+.drinks .no{font-family:var(--lab);font-weight:600;letter-spacing:.2em;font-size:.78rem;color:#7b7b77}
+.drinks h3{font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:clamp(2rem,3.4vw,3.4rem);line-height:1.1;margin-top:10px}
+.drinks h3 i{font-family:var(--serif);font-style:italic;text-transform:none}
+.drinks p{color:#4a4a47;max-width:44ch}
+@media(max-width:900px){.drinks{grid-template-columns:1fr}.drinks .btn{justify-self:start}}
+
 /* ---------- GALERIE: horizontal ---------- */
 .hs{position:relative}
 .hs-stick{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
@@ -482,7 +489,7 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
         <p>Für uns geht es dabei nicht nur um den Geschmack, sondern um die Freude, die es anderen bringt. Es gibt nichts Schöneres, als in glückliche Gesichter zu schauen, während jemand in einen saftigen Fleischspieß beißt oder die Aromen unserer Kreationen genießt.</p>
       </div>
     </div>
-    <div class="svc rv"><span class="lab">Das machen wir</span><ul><li>Catering</li><li>Grillen / BBQ</li><li>Rodizio</li><li>Smoken</li><li>Wohnzimmer kochen</li><li>Planung</li></ul></div>
+    <div class="svc rv"><span class="lab">Das machen wir</span><ul><li>Catering</li><li>Grillen / BBQ</li><li>Rodizio</li><li>Smoken</li><li>Wohnzimmer kochen</li><li>Planung</li><li>Getränke auf Anfrage</li></ul></div>
     <div class="heartrow">
       <div>
     <p class="rw heart" id="mani2">Wir grillen mit Herz, weil es uns erfüllt, anderen Freude zu schenken.</p>
@@ -553,6 +560,11 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
       <div class="mcol"><span class="no">02 · Klein &amp; fein</span><h3>Fingerfood</h3><ul><li>Caprese-Spieße mit Pesto</li><li>Knusprige Bällchen mit Chutney</li><li>Kalte Suppe im Glas</li><li>Essbare Blüten &amp; Kräuter</li></ul></div>
       <div class="mcol"><span class="no">03 · Zum Teilen</span><h3>Platten</h3><ul><li>Käse- &amp; Wurstbretter</li><li>Antipasti &amp; Oliven</li><li>Gemüse &amp; Salate</li><li>Brot &amp; Aufstriche</li></ul></div>
       <div class="mcol"><span class="no">04 · Süß</span><h3>Desserts</h3><ul><li>New York Cheesecake im Glas</li><li>Blätterteig-Törtchen mit Minze</li><li>Frisches Obst &amp; Beeren</li><li>Sweets nach Wunsch</li></ul></div>
+    </div>
+    <div class="drinks rv">
+      <div><span class="no">05 · Zum Anstoßen</span><h3>Getränke <i>auf Anfrage</i></h3></div>
+      <p>Wir stellen auch die Getränke bereit: Bier, Wein &amp; Sekt, Softdrinks, Longdrinks und warme Getränke. Sagt uns, was ihr euch vorstellt.</p>
+      <a class="btn" href="#anfrage">Getränke anfragen</a>
     </div>
     <p class="menu-note rv">Vegetarisch, vegan oder Allergien? Sagt uns Bescheid – wir finden eine Lösung.</p>
   </div>
@@ -642,6 +654,7 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
       <details><summary>Wie viele Gäste könnt ihr versorgen?</summary><p>Von der kleinen Feier bis zum größeren Event. Schreibt uns eure Gästezahl, dann planen wir Menge, Equipment und Personal passend dazu.</p></details>
       <details><summary>Gibt es vegetarische und vegane Gerichte?</summary><p>Ja. Neben Fleisch vom Grill bieten wir z. B. Caprese-Spieße, kalte Suppen, Antipasti und Gemüse. Allergien und Unverträglichkeiten berücksichtigen wir im Menü.</p></details>
       <details><summary>Grillt ihr direkt bei uns vor Ort?</summary><p>Ja, das Live-Grillen ist unser Markenzeichen. Wir bringen unser Equipment mit und sagen euch vorab, was wir an Platz und Strom benötigen.</p></details>
+      <details><summary>Könnt ihr auch Getränke bereitstellen?</summary><p>Ja, auf Anfrage. Wir stellen Bier, Wein &amp; Sekt, Softdrinks, Longdrinks und warme Getränke bereit. Schreibt uns einfach, was ihr braucht.</p></details>
       <details><summary>Sind Geschirr, Besteck und Personal buchbar?</summary><p>Auf Wunsch kümmern wir uns um das gesamte Drumherum. Sagt uns, was ihr braucht – wir machen euch ein Gesamtangebot.</p></details>
     </div>
   </div>
