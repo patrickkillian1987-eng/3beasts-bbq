@@ -71,13 +71,13 @@ main,footer{position:relative;z-index:1}
 .foot-fire{position:absolute;left:0;right:0;bottom:0;height:60%;width:100%;pointer-events:none;z-index:0;opacity:.9}
 footer .wrap{position:relative;z-index:1}
 /* ---------- CURSOR ---------- */
-.cur{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:400;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease);display:none}
-@media(hover:hover) and (pointer:fine){.cur{display:block}body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none}body.lock .cur{opacity:0}}
+.cur{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,#fff 0,#fff 55%,rgba(255,255,255,.55) 100%);box-shadow:0 0 16px 2px rgba(255,255,255,.35);mix-blend-mode:difference;pointer-events:none;z-index:400;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease);display:none}
+@media(hover:hover) and (pointer:fine){.cur{display:block}body.cursor-on,body.cursor-on *{cursor:none !important}body.lock .cur{opacity:0}}
 .cur{opacity:0;transition:opacity .5s,width .35s var(--ease),height .35s var(--ease)}
 .cur.live{opacity:1}
-.cur.photo{mix-blend-mode:normal;box-shadow:0 0 0 1px rgba(0,0,0,.4)}
-.cur.big{width:34px;height:34px}
-.cur.view{width:34px;height:34px}
+.cur.photo{mix-blend-mode:normal;background:rgba(255,255,255,.82);box-shadow:0 0 22px 4px rgba(255,255,255,.35)}
+.cur.big{width:30px;height:30px}
+.cur.view{width:30px;height:30px}
 
 /* ---------- INTRO ---------- */
 #intro{position:fixed;inset:0;z-index:300;background:#000;display:grid;place-items:center;clip-path:inset(0 0 0 0);transition:clip-path 1.4s var(--ease)}
