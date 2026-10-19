@@ -37,7 +37,7 @@ button{font:inherit;color:inherit}
 /* feine Filmkörnung */
 body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:150;opacity:.07;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  animation:grain 1s steps(6) infinite}
+  }
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
 
 .lab{font-family:var(--lab);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.8rem}
@@ -128,9 +128,11 @@ nav.ready .brand img{opacity:1}
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;display:flex;align-items:flex-end;background:#000}
 .hero-media{position:absolute;inset:-8% 0 -8%;will-change:transform}
 .hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-media img{opacity:0;transform:scale(1.04);transition:opacity 1.8s ease;filter:contrast(1.08) saturate(.9)}
-.hero-media img.on{opacity:1;animation:kb 9s ease-out forwards}
-@keyframes kb{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.2) translate(-2%,-1.5%)}}
+.hero-media img{opacity:0;z-index:0;transition:opacity 2.2s cubic-bezier(.4,0,.2,1);animation:kb 22s ease-in-out infinite alternate;will-change:opacity,transform;backface-visibility:hidden}
+.hero-media img:nth-of-type(2){animation-delay:-6s}.hero-media img:nth-of-type(3){animation-delay:-12s}.hero-media img:nth-of-type(4){animation-delay:-3s}
+.hero-media img.was{opacity:1;z-index:1}
+.hero-media img.on{opacity:1;z-index:2}
+@keyframes kb{from{transform:scale(1.05) translate3d(0,0,0)}to{transform:scale(1.16) translate3d(-1.5%,-1%,0)}}
 .hero-media video{display:none}.hero-media video.ok{display:block}
 .hero::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,.1) 32%,rgba(0,0,0,.35) 62%,#000 100%),radial-gradient(ellipse at 30% 100%,rgba(0,0,0,.7),transparent 60%)}
 #ash{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
@@ -375,9 +377,9 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
 <header class="hero" id="hero">
   <div class="hero-media" id="heroMedia">
     <img class="on" src="assets/6.webp" alt="Gemischte Grillplatte mit Rippchen, Haxe und Würsten">
-    <img src="assets/e14.webp" alt="Hand nimmt einen Tomaten-Mozzarella-Spieß vom Buffet" loading="lazy">
-    <img src="assets/e20.webp" alt="Mini Cheeseburger auf Holzbrett" loading="lazy">
-    <img src="assets/e19.webp" alt="Pimientos mit Garnelen" loading="lazy">
+    <img src="assets/e14.webp" alt="Hand nimmt einen Tomaten-Mozzarella-Spieß vom Buffet">
+    <img src="assets/e20.webp" alt="Mini Cheeseburger auf Holzbrett">
+    <img src="assets/e19.webp" alt="Pimientos mit Garnelen">
     <!-- Echtes Video: Datei als assets/hero-grill.mp4 ablegen (16:9, ca. 8–15 s). Sonst bleibt das Foto mit Kamerafahrt. -->
     <video id="heroVideo" muted loop playsinline preload="auto" aria-hidden="true" src="assets/hero-grill.mp4"></video>
   </div>
@@ -667,7 +669,13 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   const v=document.getElementById('heroVideo');
   v.addEventListener('canplay',()=>{v.classList.add('ok');media.querySelectorAll('img').forEach(i=>i.style.display='none');v.play().catch(()=>{})});
   const slides=[...media.querySelectorAll('img')];let si=0;
-  setInterval(()=>{if(v.classList.contains('ok'))return;slides[si].classList.remove('on');si=(si+1)%slides.length;slides[si].classList.add('on')},6500);
+  slides.forEach(i=>{i.loading='eager'});
+  Promise.all(slides.map(i=>i.decode?i.decode().catch(()=>{}):Promise.resolve())).then(()=>{
+    setInterval(()=>{if(v.classList.contains('ok'))return;const prev=slides[si];si=(si+1)%slides.length;const next=slides[si];
+      slides.forEach(i=>{if(i!==prev&&i!==next)i.classList.remove('was','on')});
+      prev.classList.remove('on');prev.classList.add('was');next.classList.add('on');
+      setTimeout(()=>prev.classList.remove('was'),2400)},7000);
+  });
   v.addEventListener('error',()=>v.remove());
 })();
 
