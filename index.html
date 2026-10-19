@@ -94,10 +94,16 @@ body[data-bg="0"] #pat{display:none}
 #intro{position:fixed;inset:0;z-index:300;background:#000;display:grid;place-items:center;clip-path:inset(0 0 0 0);transition:clip-path 1.4s var(--ease)}
 #intro.out{clip-path:inset(0 0 100% 0)}
 .intro-logo{width:min(70vmin,520px);aspect-ratio:1;position:relative;opacity:0;transform:scale(.92);filter:blur(10px);animation:logoIn 1.8s .3s var(--ease) forwards}
-.intro-logo img{width:100%;height:100%;object-fit:contain;animation:logoPulse 3.2s 2s ease-in-out infinite}
+.intro-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.il-flame{transform-origin:50% 30%;animation:flameFlick 1.15s ease-in-out infinite alternate;filter:drop-shadow(0 0 18px rgba(255,120,30,.55))}
+@keyframes flameFlick{0%{transform:scale(1,1) skewX(0);filter:drop-shadow(0 0 14px rgba(255,110,30,.45)) brightness(1)}35%{transform:scale(1.012,1.045) skewX(-1.2deg);filter:drop-shadow(0 0 24px rgba(255,140,40,.7)) brightness(1.18)}70%{transform:scale(.99,1.02) skewX(1deg);filter:drop-shadow(0 0 18px rgba(255,100,20,.55)) brightness(1.05)}100%{transform:scale(1.02,1.06) skewX(-.6deg);filter:drop-shadow(0 0 30px rgba(255,150,50,.8)) brightness(1.25)}}
+.il-base{animation:baseGlow 3.4s ease-in-out infinite alternate}
+@keyframes baseGlow{from{filter:drop-shadow(0 0 0 rgba(255,120,30,0))}to{filter:drop-shadow(0 0 22px rgba(255,110,30,.28))}}
+.il-halo{position:absolute;left:18%;right:18%;top:-8%;height:62%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,120,30,.45),rgba(255,70,10,.15) 60%,transparent 100%);filter:blur(22px);animation:halo 1.3s ease-in-out infinite alternate;pointer-events:none}
+@keyframes halo{0%{opacity:.5;transform:scale(.92)}50%{opacity:1}100%{opacity:.7;transform:scale(1.08,1.12)}}
 @keyframes logoIn{to{opacity:1;transform:none;filter:blur(0)}}
 @keyframes logoPulse{0%,100%{filter:drop-shadow(0 0 0 rgba(255,255,255,0))}50%{filter:drop-shadow(0 0 28px rgba(255,255,255,.35))}}
-.intro-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.1),transparent 55%);animation:glow 3s ease-in-out infinite alternate}
+.intro-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 46%,rgba(255,110,30,.2),rgba(255,60,10,.06) 40%,transparent 62%);animation:glow 2.4s ease-in-out infinite alternate}
 @keyframes glow{from{opacity:.3}to{opacity:1}}
 #introFx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .intro-count{position:absolute;left:var(--pad);bottom:34px;font-family:var(--head);font-size:clamp(3rem,8vw,7rem);line-height:1;letter-spacing:.01em}
@@ -105,7 +111,7 @@ body[data-bg="0"] #pat{display:none}
 .intro-meta{position:absolute;right:var(--pad);top:34px;left:var(--pad);display:flex;justify-content:space-between;color:var(--g)}
 .intro-btns{position:absolute;right:var(--pad);bottom:34px;display:flex;gap:14px;opacity:0;pointer-events:none;transition:opacity .8s}
 .intro-btns.show{opacity:1;pointer-events:auto}
-.intro-line{position:absolute;left:0;bottom:0;height:2px;background:#fff;width:0}
+.intro-line{position:absolute;left:0;bottom:0;height:3px;background:linear-gradient(90deg,#ff5a1f,#ffb020,#fff2c0);box-shadow:0 0 14px rgba(255,120,30,.8);width:0}
 @media(max-width:700px){.intro-btns{left:var(--pad);right:var(--pad);bottom:110px;flex-direction:column}.intro-btns .btn{justify-content:center}}
 
 /* ---------- NAV ---------- */
@@ -426,7 +432,7 @@ details{background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
   <canvas id="introFx"></canvas>
   <div class="intro-glow"></div>
   <div class="intro-meta lab"><span>3Beasts BBQ</span><span>Catering vom Feuer</span></div>
-  <div class="intro-logo"><img src="assets/logo.png" alt="3Beasts BBQ"></div>
+  <div class="intro-logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png" alt="3Beasts BBQ"><img class="il-flame" src="assets/logo_flame.png" alt=""></div>
   <div class="intro-count"><span id="cnt">0</span><small>%</small></div>
   <div class="intro-btns show" id="introBtns">
     <button class="btn" id="enterQuiet" style="color:#fff;padding:14px 28px">Überspringen</button>
@@ -603,7 +609,6 @@ details{background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
   <div class="hs-stick">
     <div class="hs-head">
       <div><div class="idx lab" style="margin-bottom:18px">(04) Galerie</div><h2 class="h2">Appetit <i>gefällig?</i></h2></div>
-      <span class="lab" style="color:var(--g)">Scrollen →</span>
     </div>
     <div class="hs-track" id="track">
       <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e25.webp" alt="Fleischspieße über Glut und Flammen"></div><figcaption class="lab"><span>Spieße überm Feuer</span><span>01</span></figcaption></figure>
@@ -760,7 +765,7 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 /* ===== INTRO ===== */
 (function(){
   const intro=document.getElementById('intro'),btns=document.getElementById('introBtns'),cnt=document.getElementById('cnt'),line=document.getElementById('iline');
-  const cv=document.getElementById('introFx'),ctx=cv.getContext('2d'); let W,H,run=true,parts=[];
+  const cv=document.getElementById('introFx'),ctx=cv.getContext('2d'); let W,H,run=true,parts=[],fl=[],tt=0;const logoEl=document.querySelector('.intro-logo');
   function rs(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)} rs(); addEventListener('resize',rs);
   let last=performance.now(),t0=last,done=false;
   (function loop(n){
@@ -768,10 +773,26 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
     const p=clamp((n-t0)/3200,0,1), e=1-Math.pow(1-p,3);
     cnt.textContent=Math.round(e*100); line.style.width=(e*100)+'%';
     if(p>=1&&!done){done=true;setTimeout(()=>enter(),500)}
-    ctx.clearRect(0,0,W,H);
-    if(Math.random()<.5) parts.push({x:Math.random()*W,y:H+8,vx:(Math.random()-.5)*20,vy:-(40+Math.random()*90),r:.6+Math.random()*1.6,l:0,m:4+Math.random()*4,ph:Math.random()*6});
-    parts=parts.filter(q=>q.l<q.m);
-    for(const q of parts){q.l+=dt;q.x+=(q.vx+Math.sin(q.l*2+q.ph)*18)*dt;q.y+=q.vy*dt;const a=Math.min(1,q.l*2)*(1-q.l/q.m);ctx.fillStyle=`rgba(255,255,255,${a*.7})`;ctx.beginPath();ctx.arc(q.x,q.y,q.r,0,6.3);ctx.fill()}
+    ctx.clearRect(0,0,W,H); tt+=dt;
+    ctx.globalCompositeOperation='lighter';
+    // Flammen am unteren Rand
+    { let n2=(W/10)*dt; while(n2>0){ if(Math.random()<Math.min(1,n2)){const x=Math.random()*W,wob=.5+.5*Math.sin(x*.007+tt*1.7)*Math.sin(x*.0027-tt*.5);
+        if(Math.random()<.25+wob*.75) fl.push({x:x,y:H+16,vx:(Math.random()-.5)*28,vy:-(80+Math.random()*170)*(.6+wob*.9),l:0,m:.8+Math.random()*1.0,s:38+Math.random()*70,ph:Math.random()*6});} n2-=1; }
+      fl=fl.filter(p=>p.l<p.m);
+      for(const p of fl){p.l+=dt;p.x+=(p.vx+Math.sin(p.l*8+p.ph)*32)*dt;p.y+=p.vy*dt;const k=p.l/p.m,sz=p.s*(1-k*.55),al=.2*(1-k)*(1-k);
+        const gr=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,sz);gr.addColorStop(0,'rgba(255,238,210,'+al+')');gr.addColorStop(.45,'rgba(255,165,80,'+(al*.65)+')');gr.addColorStop(1,'rgba(255,90,20,0)');ctx.fillStyle=gr;ctx.fillRect(p.x-sz,p.y-sz,sz*2,sz*2);} }
+    // Grillfunken: überall + direkt aus der Logo-Flamme
+    const lr=logoEl?logoEl.getBoundingClientRect():null;
+    if(Math.random()<14*dt) parts.push({x:Math.random()*W,y:H*(.5+Math.random()*.55),vx:(Math.random()-.5)*14,vy:-(34+Math.random()*60),r:.7+Math.random()*1.7,l:0,m:4+Math.random()*6,ph:Math.random()*6,sw:10+Math.random()*26,sf:.6+Math.random()*1.4});
+    if(lr&&lr.width>0&&Math.random()<22*dt) parts.push({x:lr.left+lr.width*(.42+Math.random()*.16),y:lr.top+lr.height*(.12+Math.random()*.14),vx:(Math.random()-.5)*30,vy:-(50+Math.random()*90),r:.8+Math.random()*1.8,l:0,m:2+Math.random()*3,ph:Math.random()*6,sw:8+Math.random()*20,sf:1+Math.random()*2});
+    parts=parts.filter(p=>p.l<p.m&&p.y>-20);
+    for(const p of parts){
+      p.l+=dt; p.vx*=.99; p.vy=p.vy*.999-4*dt; p.x+=(p.vx+Math.sin(p.l*p.sf+p.ph)*p.sw)*dt; p.y+=p.vy*dt;
+      const k=p.l/p.m, fade=Math.min(1,p.l*1.2)*(1-k*k), flick=.55+.45*Math.sin(p.l*14+p.ph)*Math.sin(p.l*5.3+p.ph*2), al=Math.max(0,fade*flick);
+      ctx.fillStyle='rgba(255,'+(190+60*(1-k)|0)+','+(120+90*(1-k)|0)+','+(al*.95)+')';ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.3);ctx.fill();
+      ctx.fillStyle='rgba(255,170,90,'+(al*.16)+')';ctx.beginPath();ctx.arc(p.x,p.y,p.r*4.2,0,6.3);ctx.fill();
+    }
+    ctx.globalCompositeOperation='source-over';
     requestAnimationFrame(loop);
   })(last);
   function enter(){
@@ -780,12 +801,12 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
     // Logo fliegt in die Navigation, statt zu verschwinden
     const src=document.querySelector('.intro-logo img'),r=src.getBoundingClientRect();
     const padL=parseFloat(getComputedStyle(document.querySelector('.nav-in')).paddingLeft)||20,size=innerWidth<=700?58:64;
-    const c=src.cloneNode();
-    c.style.cssText='position:fixed;z-index:310;left:'+r.left+'px;top:'+r.top+'px;width:'+r.width+'px;height:'+r.height+'px;object-fit:contain;transform-origin:0 0;pointer-events:none;transition:transform 1.5s cubic-bezier(.76,0,.24,1)';
-    document.body.appendChild(c); src.style.visibility='hidden';
+    const c=src.cloneNode();c.src='assets/logo_color.png';c.className='';
+    c.style.cssText='position:fixed;z-index:310;left:'+r.left+'px;top:'+r.top+'px;width:'+r.width+'px;height:'+r.height+'px;object-fit:contain;transform-origin:0 0;pointer-events:none;transition:transform 1.5s cubic-bezier(.76,0,.24,1),filter 1.4s ease';
+    document.body.appendChild(c); document.querySelector('.intro-logo').style.visibility='hidden';
     intro.classList.add('out'); document.body.classList.remove('lock'); window.scrollTo({top:0,behavior:'instant'});
     c.getBoundingClientRect();
-    c.style.transform='translate('+(padL-r.left)+'px,'+(26-r.top)+'px) scale('+(size/r.width)+')';
+    c.style.filter='grayscale(1) brightness(1.15)';c.style.transform='translate('+(padL-r.left)+'px,'+(26-r.top)+'px) scale('+(size/r.width)+')';
     setTimeout(()=>{document.body.classList.add('go')},700);
     setTimeout(()=>{document.getElementById('nav').classList.add('show')},1000);
     setTimeout(()=>{document.getElementById('nav').classList.add('ready');c.remove()},1560);
