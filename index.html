@@ -748,6 +748,13 @@ img{image-rendering:auto}
 .mp-note{margin-top:24px;padding:16px 20px;border-left:3px solid var(--ember);background:rgba(0,0,0,.05);color:#33322e;font-size:1.05rem}
 @media(max-width:900px){.mg.cols3 ul{columns:2}}
 @media(max-width:560px){.mg.cols3 ul{columns:1}.mtabs{gap:8px}.mtabs button{padding:10px 16px;font-size:.84rem}}
+
+/* Übergang hell -> dunkel und Foto-Trio */
+#ablauf{padding-bottom:clamp(50px,6vw,90px)}
+.duo{position:relative;padding-top:clamp(70px,9vw,130px);background:linear-gradient(#f1f0ec,rgba(241,240,236,0)) top/100% clamp(120px,14vw,200px) no-repeat}
+.duo figure{background:#0b0b0b}
+.duo img{top:-16%;height:132%}
+.duo figure{box-shadow:0 22px 50px rgba(0,0,0,.45)}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
