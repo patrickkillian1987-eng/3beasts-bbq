@@ -132,7 +132,7 @@ nav.ready .brand .flogo{opacity:1;transition:opacity .3s}
 @keyframes baseGlowS{from{filter:drop-shadow(0 0 0 rgba(255,120,30,0))}to{filter:drop-shadow(0 0 5px rgba(255,110,30,.3))}}
 .foot-logo{width:min(300px,56vw);height:auto;aspect-ratio:1000/901;display:block;margin:0 auto 50px;position:relative}
 .foot-logo .il-halo{top:-6%}
-@media(max-width:700px){.brand span{display:none}.flogo{width:58px;height:58px}}
+@media(max-width:700px){.brand>span:not(.flogo){display:none}.flogo{width:58px;height:58px}}
 .links{display:flex;gap:38px;align-items:center;list-style:none}
 .links a{font-family:var(--lab);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.82rem;position:relative}
 .links a:not(.pill)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
