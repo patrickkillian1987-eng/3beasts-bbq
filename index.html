@@ -164,12 +164,22 @@ nav.ready .brand img{opacity:1}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* ---------- MANIFEST ---------- */
-.manifest p{font-family:var(--head);text-transform:uppercase;font-size:clamp(2rem,5.4vw,5.6rem);line-height:1.3;max-width:20ch;letter-spacing:.005em}
-.manifest p{max-width:26ch}
+.manifest .rw{font-family:var(--head);text-transform:uppercase;font-size:clamp(2rem,5.4vw,5.6rem);line-height:1.3;max-width:24ch;letter-spacing:.005em}
 .manifest .w{opacity:.24;transition:opacity .25s}
 .manifest .w.on{opacity:1}
-.manifest .sub{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-top:70px;padding-top:30px;border-top:1px solid var(--line);color:var(--g)}
-.manifest .sub p{font-family:var(--body);text-transform:none;font-size:1.1rem;line-height:1.65;max-width:50ch;color:#b9b9b9}
+.story{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(24px,6vw,100px);margin:clamp(70px,9vw,130px) 0;padding-top:30px;border-top:1px solid var(--line);color:var(--g)}
+.story .txt p{font-size:clamp(1.15rem,1.6vw,1.45rem);line-height:1.7;color:#cfcfcf;max-width:44ch}
+.story .txt p+p{margin-top:1.4em}
+.story .txt strong{color:#fff;font-weight:500}
+.manifest .rw.heart{max-width:20ch}
+.manifest .close{font-family:var(--serif);font-style:italic;font-size:clamp(1.7rem,3.6vw,3.4rem);line-height:1.2;max-width:26ch;margin-top:clamp(50px,7vw,90px);color:#e8e8e8}
+.team{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,2.6vw,2.4rem);color:#fff;margin-top:14px;line-height:1.2}
+.team i{color:var(--g);margin:0 .15em}
+.svc{margin:0 0 clamp(70px,9vw,130px);display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(24px,6vw,100px);color:var(--g)}
+.svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+.svc li{border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:10px 24px;font-family:var(--lab);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.9rem;color:#fff;transition:.4s}
+.svc li:hover{background:#fff;color:#000}
+@media(max-width:800px){.story,.svc{grid-template-columns:1fr}}
 
 /* ---------- BEASTS ---------- */
 .beasts{margin-top:80px;border-top:1px solid var(--line)}
@@ -367,18 +377,24 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
 </header>
 
 <div class="marq" aria-hidden="true"><div>
-  <span>Feuer</span><span>Fleisch</span><span>Leidenschaft</span><span>Live am Grill</span><span>Catering</span><span>Feuer</span><span>Fleisch</span><span>Leidenschaft</span><span>Live am Grill</span><span>Catering</span>
+  <span>Feuer</span><span>Fleisch</span><span>Leidenschaft</span><span>Live am Grill</span><span>Rodizio</span><span>Smoken</span><span>Catering</span><span>Feuer</span><span>Fleisch</span><span>Leidenschaft</span><span>Live am Grill</span><span>Rodizio</span><span>Smoken</span><span>Catering</span>
 </div></div>
 
 <!-- ============ MANIFEST ============ -->
 <section class="sec manifest" id="ueber-uns">
   <div class="wrap">
     <div class="idx lab">(01) Über uns</div>
-    <p id="mani">Wir kochen mit Feuer, mit Respekt vor dem Produkt und mit dem Anspruch, dass eure Gäste noch Wochen später davon reden.</p>
-    <div class="sub rv">
-      <span class="lab">3Beasts BBQ</span>
-      <p>Ob entspannte Gartenparty oder große Hochzeit: Bei uns kommt alles frisch aus der Küche und vom Rost. Wir planen mit euch, bauen auf, grillen live und sorgen dafür, dass ihr einfach nur feiern müsst.</p>
+    <p class="rw" id="mani">BBQ ist für uns mehr als nur das Zubereiten von Essen. Es ist eine Leidenschaft, ein Erlebnis, das Menschen zusammenbringt.</p>
+    <div class="story">
+      <div><span class="lab">Unsere Leidenschaft</span><div class="team">Alex <i>/</i> Chris <i>/</i> Sunny</div></div>
+      <div class="txt rv">
+        <p>Wir lieben es, wenn der Duft von glühender Kohle und frisch gegrilltem Fleisch die Luft erfüllt, wenn Freunde und Familie sich um den Grill versammeln und der Moment einfach perfekt ist.</p>
+        <p>Für uns geht es dabei nicht nur um den Geschmack, sondern um die Freude, die es anderen bringt. Es gibt nichts Schöneres, als in glückliche Gesichter zu schauen, während jemand in einen saftigen Fleischspieß beißt oder die Aromen unserer Kreationen genießt.</p>
+      </div>
     </div>
+    <div class="svc rv"><span class="lab">Das machen wir</span><ul><li>Catering</li><li>Grillen / BBQ</li><li>Rodizio</li><li>Smoken</li><li>Wohnzimmer kochen</li><li>Planung</li></ul></div>
+    <p class="rw heart" id="mani2">Wir grillen mit Herz, weil es uns erfüllt, anderen Freude zu schenken.</p>
+    <p class="close rv">BBQ ist unsere Art, Liebe und Gastfreundschaft auszudrücken, mit jedem Gericht, jedem Feuer und jeder gemeinsamen Mahlzeit.</p>
   </div>
 </section>
 
@@ -523,14 +539,14 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
     <div class="foot-row lab">
       <div class="fl"><a href="#ueber-uns">Über uns</a><a href="#kueche">Küche</a><a href="#galerie">Galerie</a><a href="#pakete">Pakete</a><a href="#anfrage">Kontakt</a></div>
       <div class="fl"><a href="#" data-imprint>Impressum</a><a href="#" data-privacy>Datenschutz</a></div>
-      <span>© <span id="yr"></span> 3Beasts BBQ</span>
+      <span>3beasts.bbq@gmail.com · 0152 34239839</span><span>© <span id="yr"></span> 3Beasts BBQ</span>
     </div>
   </div>
 </footer>
 
 <script>
 /* ===== KONFIGURATION – echte Daten hier eintragen ===== */
-const CONFIG={whatsapp:'490000000000', /* WhatsApp-Nummer mit Ländervorwahl, ohne + und Leerzeichen */ email:'info@3beasts-bbq.de',phone:'+49 000 0000000',instagram:'https://www.instagram.com/',instagramHandle:'@3beasts.bbq'};
+const CONFIG={whatsapp:'4915234239839',email:'3beasts.bbq@gmail.com',phone:'0152 34239839',instagram:'https://www.instagram.com/3beasts.bbq/',instagramHandle:'@3beasts.bbq'};
 document.querySelectorAll('[data-mail]').forEach(a=>{a.href='mailto:'+CONFIG.email;a.textContent=CONFIG.email});
 document.querySelectorAll('[data-tel]').forEach(a=>{a.href='https://wa.me/'+CONFIG.whatsapp;a.target='_blank';a.rel='noopener';a.textContent=CONFIG.phone});
 document.querySelectorAll('[data-ig]').forEach(a=>{a.href=CONFIG.instagram;a.textContent=CONFIG.instagramHandle});
@@ -681,13 +697,13 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.rv,.h2').forEach(el=>io.observe(el));
 
 /* Manifest: Wörter leuchten beim Scrollen auf */
-(function(){
-  const p=document.getElementById('mani'),words=p.textContent.trim().split(/\s+/);
+['mani','mani2'].forEach(function(id){
+  const p=document.getElementById(id),words=p.textContent.trim().split(/\s+/);
   p.innerHTML=words.map(w=>`<span class="w">${w}</span>`).join(' ');
   const spans=[...p.querySelectorAll('.w')];
   function upd(){const r=p.getBoundingClientRect(),vh=innerHeight;const prog=clamp((vh*.85-r.top)/(r.height+vh*.35),0,1);const n=Math.round(prog*spans.length*1.05);spans.forEach((s,i)=>s.classList.toggle('on',i<n))}
   addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
-})();
+});
 
 /* Beasts: Bild folgt dem Cursor */
 (function(){
