@@ -429,6 +429,53 @@ summary{text-shadow:0 1px 12px rgba(0,0,0,.9)}
 details{background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
 @media(max-width:900px){nav{background:rgba(0,0,0,.86)}body::after{display:none}.hero-media img{animation-duration:34s}#pat{background-attachment:scroll}}
 .hs-item,.hs-item img{contain:layout paint}.hs-track{backface-visibility:hidden}
+
+/* ---------- Feuer-Akzente (Farbverlauf wie im Logo) ---------- */
+:root{--fire1:#ffbe46;--fire2:#ff5c16;--fire:linear-gradient(180deg,#ffbe46,#ff5c16);--fire-h:linear-gradient(90deg,#ffbe46,#ff5c16);--ember:#e0480d}
+::selection{background:#ff5c16;color:#fff}
+html{scrollbar-color:#ff5c16 #0a0a0a}
+.h2 i{background:var(--fire);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.light .h2 i{background:linear-gradient(180deg,#ff8a1f,#e0380a);-webkit-background-clip:text;background-clip:text}
+.pband-txt p i,.drinks h3 i{background:var(--fire);-webkit-background-clip:text;background-clip:text;color:transparent}
+.idx::before{background:var(--fire-h);height:2px;opacity:1}
+.hero-top span:first-child::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--fire);margin-right:10px;box-shadow:0 0 10px rgba(255,110,30,.9);vertical-align:1px}
+.marq span:nth-child(4n+2){background:var(--fire);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
+.links a:not(.pill)::after{background:var(--fire-h)}
+.pill:hover{background:var(--fire);color:#150600;border-color:transparent}
+.ig-ico:hover{background:var(--fire);color:#150600;border-color:transparent}
+.wa-float{border-color:#ffb040}
+.wa-float::after{border-color:rgba(255,140,40,.55)}
+.btn.solid{transition:color .5s var(--ease),box-shadow .4s}
+.btn.solid:hover{box-shadow:0 10px 34px rgba(255,100,20,.45)}
+.btn:hover{border-color:#ff7a2a}
+.beast .n{color:#ff7a2a}
+.beast:hover{border-bottom-color:#ff5c16}
+.hs-item figcaption span:last-child{color:var(--fire1)}
+.hs-prog i{background:var(--fire-h)}
+.mcol .no,.drinks .no,.pack .no{color:var(--ember)}
+.pack:hover .no,.pack.hot .no{color:var(--ember);opacity:1}
+.mcol:hover h3{color:var(--ember)}
+.menu,.steps,.drinks{border-top-color:var(--ember)}
+.step .big{-webkit-text-stroke-color:var(--ember)}
+.step:hover .big{color:var(--ember)}
+.occ span:hover{background:var(--ember);color:#fff;border-color:var(--ember)}
+.svc li:hover{background:var(--fire);color:#150600;border-color:transparent}
+.team-names span:hover{border-color:#ff7a2a;color:var(--fire1)}
+.pack .tag{background:var(--fire);color:#150600;border-color:transparent;opacity:1}
+.pack{border-color:rgba(255,160,80,.2)}
+summary::after{background:linear-gradient(#ff7a2a,#ff7a2a) center/100% 2px no-repeat,linear-gradient(#ff7a2a,#ff7a2a) center/2px 100% no-repeat}
+details[open] summary{color:var(--fire1)}
+.foot-row a:hover{color:var(--fire1)}
+.mail-big{border-bottom-color:var(--ember)}
+.c-info li small,label{color:#7a7a76}
+.contact input:focus,.contact select:focus,.contact textarea:focus{border-bottom-color:var(--ember);box-shadow:0 1px 0 var(--ember)}
+.consent input{accent-color:var(--ember)}
+.contact .btn.solid:hover{box-shadow:0 10px 30px rgba(224,72,13,.45)}
+.team-photo::before{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--fire-h);z-index:4}
+.pband::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--fire-h);z-index:3}
+.duo figcaption::before{content:"";display:inline-block;width:18px;height:2px;background:var(--fire-h);margin-right:10px;vertical-align:middle}
+.hs-item figcaption span:first-child{position:relative}
+.intro-tag{color:#ffb070}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
