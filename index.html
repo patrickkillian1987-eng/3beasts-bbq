@@ -842,6 +842,22 @@ img{image-rendering:auto}
 .indiv-list span{color:#cfcfcf;font-size:1.05rem}
 .indiv-btn{grid-column:1/-1;justify-self:start}
 @media(max-width:900px){.indiv{grid-template-columns:1fr}}
+
+/* Individuelle Gerichte: Kacheln, füllen die Höhe */
+.indiv{align-items:stretch;background:linear-gradient(135deg,#151515,#0a0a0a)}
+.indiv-list{grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:12px;align-content:stretch}
+.indiv-list li{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:20px 18px 18px;min-height:150px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.16);overflow:hidden;transition:transform .5s var(--ease),border-color .4s,background .4s}
+.indiv-list li:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+.indiv-list li::before{display:none}
+.indiv-list li::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,#ffbe46,#ff5c16);transition:width .6s var(--ease)}
+.indiv-list li:hover{transform:translateY(-5px);border-color:rgba(255,130,50,.6);background:rgba(255,120,30,.08)}
+.indiv-list li:hover::after{width:100%}
+.indiv-list .il-ico{position:absolute;top:16px;left:18px;width:42px;height:42px;display:block}
+.indiv-list .il-ico svg{width:100%;height:100%;fill:none;stroke:#ffb040;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.indiv-list em{position:absolute;top:18px;right:18px;font-style:normal;font-family:var(--lab);font-weight:600;letter-spacing:.2em;font-size:.8rem;color:#ff7a2a}
+.indiv-list b{font-family:var(--head);font-weight:400;text-transform:uppercase;letter-spacing:.01em;font-size:1.45rem;line-height:1.1;margin-top:64px}
+.indiv-list .il-t{color:#d6d6d6;font-size:1rem;line-height:1.35;position:static;width:auto;height:auto}
+@media(max-width:560px){.indiv-list{grid-template-columns:1fr}.indiv-list li{min-height:0}.indiv-list b{margin-top:56px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1063,12 +1079,7 @@ img{image-rendering:auto}
         <p>Unsere Speisekarte ist eine Auswahl, kein festes Korsett. Wir entwickeln gerne <strong>individuelle Gerichte und komplett maßgeschneiderte Menüs</strong> für euer Event: nach eurem Geschmack, passend zum Anlass und abgestimmt auf Gästezahl, Ernährungswünsche und Allergien.</p>
         <p>Ob Familienrezept, Lieblingsgericht oder eine Idee, die es so noch nirgends gibt: Erzählt uns davon. Wir beraten euch persönlich und setzen es mit frischen Zutaten und Leidenschaft um.</p>
       </div>
-      <ul class="indiv-list">
-        <li><b>Eigene Gerichte</b><span>Rezepte und Ideen von euch setzen wir gerne um.</span></li>
-        <li><b>Menü nach Maß</b><span>Vom Empfang bis zum Dessert individuell zusammengestellt.</span></li>
-        <li><b>Rücksicht auf Wünsche</b><span>Vegetarisch, vegan, Allergien und Unverträglichkeiten.</span></li>
-        <li><b>Persönliche Beratung</b><span>Wir planen gemeinsam, unverbindlich und ehrlich.</span></li>
-      </ul>
+      <ul class="indiv-list"><li><span class="il-ico"><svg viewBox="-24 -24 48 48"><path d="M-8-18V-4C-8 2 4 2 4-4V-18M-2-18V0M-2 4V18"/><path d="M12-18C18-10 18 0 12 4V18H9V-18Z"/></svg></span><em>01</em><b>Eigene Gerichte</b><span class="il-t">Rezepte und Ideen von euch setzen wir gerne um.</span></li><li><span class="il-ico"><svg viewBox="-24 -24 48 48"><rect x="-14" y="-18" width="28" height="36" rx="3"/><path d="M-8-9H8M-8-2H8M-8 5H2"/></svg></span><em>02</em><b>Menü nach Maß</b><span class="il-t">Vom Empfang bis zum Dessert individuell zusammengestellt.</span></li><li><span class="il-ico"><svg viewBox="-24 -24 48 48"><path d="M-14 14C-14-6 0-16 16-16C16 0 6 14-14 14Z"/><path d="M-14 14C-6 6 0-2 8-8"/></svg></span><em>03</em><b>Rücksicht auf Wünsche</b><span class="il-t">Vegetarisch, vegan, Allergien und Unverträglichkeiten.</span></li><li><span class="il-ico"><svg viewBox="-24 -24 48 48"><path d="M-16-14H16V8H-4L-14 16V8H-16Z"/><path d="M-8-6H8M-8 0H2"/></svg></span><em>04</em><b>Persönliche Beratung</b><span class="il-t">Wir planen gemeinsam, unverbindlich und ehrlich.</span></li></ul>
       <a class="btn solid indiv-btn" href="#anfrage">Wunschmenü anfragen</a>
     </div>
     <div class="drinks rv">
