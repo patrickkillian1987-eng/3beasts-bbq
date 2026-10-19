@@ -169,6 +169,32 @@ nav.ready .brand img{opacity:1}
 .badge text{font-family:var(--lab);font-weight:600;font-size:11.5px;letter-spacing:.32em;fill:#fff;text-transform:uppercase}
 @media(max-width:900px){.badge{display:none}.hero-row{flex-direction:column;align-items:flex-start}.hero-top{top:92px}.hero h1{font-size:clamp(3.4rem,17vw,9rem)}}
 
+/* ---------- Fotos im Über-uns-Bereich ---------- */
+.pimg{position:relative;overflow:hidden;background:#111}
+.pimg img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover;will-change:transform}
+.m-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(30px,5vw,90px);align-items:start}
+.m-collage{position:relative;height:clamp(420px,46vw,700px);margin-top:46px}
+.mc1{position:absolute;right:0;top:0;width:60%;aspect-ratio:4/5}
+.mc2{position:absolute;left:0;top:30%;width:46%;aspect-ratio:1/1;border:6px solid #000}
+.mc3{position:absolute;right:8%;bottom:0;width:42%;aspect-ratio:3/2;border:6px solid #000}
+.heartrow{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(30px,5vw,90px);align-items:center}
+.hr-photos{position:relative;height:clamp(300px,34vw,520px)}
+.hp1{position:absolute;left:0;top:0;width:66%;aspect-ratio:3/2}
+.hp2{position:absolute;right:0;bottom:0;width:58%;aspect-ratio:4/3;border:6px solid #000}
+.bhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,70px);align-items:end}
+.bh-photos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;justify-self:end;width:100%;max-width:680px}
+.bh-photos figure{aspect-ratio:3/4}
+.bh-photos figure:nth-child(2){margin-top:34px}
+@media(max-width:900px){
+  .m-top,.heartrow,.bhead{grid-template-columns:1fr}
+  .m-collage{height:auto;margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mc1,.mc2,.mc3{position:relative;inset:auto;width:100%;border:0}
+  .mc1{grid-row:span 2;aspect-ratio:4/5}.mc2{aspect-ratio:1/1}.mc3{aspect-ratio:1/1}
+  .hr-photos{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+  .hp1,.hp2{position:relative;width:100%;border:0;aspect-ratio:1/1}
+  .bh-photos{max-width:none;margin-top:26px}
+}
+
 /* ---------- Foto-Bänder ---------- */
 .pband{position:relative;min-height:min(80vh,720px);display:grid;align-items:end;overflow:hidden;background:#000}
 .pband-media{position:absolute;inset:0;overflow:hidden}
@@ -424,8 +450,17 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
 <!-- ============ MANIFEST ============ -->
 <section class="sec manifest" id="ueber-uns">
   <div class="wrap">
+    <div class="m-top">
+      <div class="m-left">
     <div class="idx lab">(01) Über uns</div>
     <p class="rw" id="mani">BBQ ist für uns mehr als nur das Zubereiten von Essen. Es ist eine Leidenschaft, ein Erlebnis, das Menschen zusammenbringt.</p>
+      </div>
+      <div class="m-collage" aria-hidden="true">
+        <figure class="mc1 pimg"><img data-par="-0.07" loading="lazy" src="assets/e15.webp" alt=""></figure>
+        <figure class="mc2 pimg"><img data-par="0.1" loading="lazy" src="assets/6.webp" alt=""></figure>
+        <figure class="mc3 pimg"><img data-par="-0.05" loading="lazy" src="assets/e14.webp" alt=""></figure>
+      </div>
+    </div>
     <div class="story">
       <div><span class="lab">Unsere Leidenschaft</span><div class="team">Alex <i>/</i> Chris <i>/</i> Sunny</div></div>
       <div class="txt rv">
@@ -434,8 +469,16 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
       </div>
     </div>
     <div class="svc rv"><span class="lab">Das machen wir</span><ul><li>Catering</li><li>Grillen / BBQ</li><li>Rodizio</li><li>Smoken</li><li>Wohnzimmer kochen</li><li>Planung</li></ul></div>
+    <div class="heartrow">
+      <div>
     <p class="rw heart" id="mani2">Wir grillen mit Herz, weil es uns erfüllt, anderen Freude zu schenken.</p>
     <p class="close rv">BBQ ist unsere Art, Liebe und Gastfreundschaft auszudrücken, mit jedem Gericht, jedem Feuer und jeder gemeinsamen Mahlzeit.</p>
+      </div>
+      <div class="hr-photos">
+        <figure class="hp1 pimg"><img data-par="0.08" loading="lazy" src="assets/e17.webp" alt="Mini Wrap Hähnchen"></figure>
+        <figure class="hp2 pimg"><img data-par="-0.08" loading="lazy" src="assets/e20.webp" alt="Mini Cheeseburger"></figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -443,7 +486,14 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
 <section class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="idx lab">(02) Die drei Beasts</div>
-    <h2 class="h2"><span class="mask"><span>Drei Beasts.</span></span><span class="mask"><span><i>ein</i> Feuer.</span></span></h2>
+    <div class="bhead">
+      <h2 class="h2"><span class="mask"><span>Drei Beasts.</span></span><span class="mask"><span><i>ein</i> Feuer.</span></span></h2>
+      <div class="bh-photos" aria-hidden="true">
+        <figure class="pimg"><img data-par="0.06" loading="lazy" src="assets/e19.webp" alt=""></figure>
+        <figure class="pimg"><img data-par="-0.06" loading="lazy" src="assets/e18.webp" alt=""></figure>
+        <figure class="pimg"><img data-par="0.06" loading="lazy" src="assets/3.webp" alt=""></figure>
+      </div>
+    </div>
     <div class="beasts">
       <div class="beast rv" data-img="assets/6.webp"><span class="n">01</span><h3>Das Feuer</h3><p>Rippchen, Haxen, Würste und Steaks – langsam gegart, scharf angegrillt, mit Kräuter-Chimichurri veredelt.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/6.webp" alt=""></div>
       <div class="beast rv" data-img="assets/e15.webp"><span class="n">02</span><h3>Die Frische</h3><p>Fingerfood zum Staunen: Caprese-Spieße, knusprige Bällchen, kalte Suppen im Glas, Bretter voller Antipasti.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/e15.webp" alt=""></div>
