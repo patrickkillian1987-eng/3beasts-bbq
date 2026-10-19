@@ -577,6 +577,19 @@ details[open] summary{color:var(--fire1)}
 .pk-note div{display:flex;align-items:center;gap:10px;font-family:var(--lab);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.86rem;color:#f0f0f0}
 .pk-note svg{width:20px;height:20px;fill:none;stroke:#ff7a2a;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:950px){.pk2{grid-template-columns:1fr;max-width:560px;margin-inline:auto}.pc.hot{transform:none}.pc.hot:hover{transform:translateY(-8px)}}
+
+/* Letzte Kachel: Feuer-Kachel ohne Foto */
+.lcta{display:flex;flex-direction:column;justify-content:flex-start;gap:4px;min-height:320px;padding:30px 26px;color:#1a0800;background:linear-gradient(155deg,#ffbe46 0%,#ff7a1f 52%,#e0380a 100%)!important;border:0!important;box-shadow:0 14px 44px rgba(255,90,20,.28)}
+.lcta::before{display:none}.lcta::after{display:none}
+.lcta .lab{color:rgba(26,8,0,.75);font-size:.8rem;position:relative;z-index:1}
+.lcta strong{position:relative;z-index:1;font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:clamp(2.2rem,3vw,3.2rem);line-height:1.05;color:#1a0800;margin-top:6px}
+.lcta p{position:relative;z-index:1;color:rgba(26,8,0,.82);max-width:24ch;margin-top:12px;font-weight:500}
+.lcta-arr{position:absolute;z-index:1;left:26px;bottom:26px;width:60px;height:60px;border-radius:50%;background:#1a0800;color:#fff;display:grid;place-items:center;font-size:1.7rem;transition:transform .5s var(--ease),background .4s}
+.lcta-deco{position:absolute;right:-22px;bottom:-26px;width:210px;height:210px;fill:none;stroke:rgba(26,8,0,.2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .8s var(--ease)}
+.lcta:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(255,90,20,.45)}
+.lcta:hover .lcta-arr{transform:translateX(8px) rotate(-45deg);background:#000}
+.lcta:hover .lcta-deco{transform:scale(1.1) rotate(4deg)}
+@media(max-width:520px){.lcta{min-height:260px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -717,7 +730,7 @@ details[open] summary{color:var(--fire1)}
       <article class="lc rv d0"><span class="no">05</span><svg viewBox="-38 -38 76 76" aria-hidden="true"><path d="M0 30V10"/><path d="M0 10C-19-4-15-30 0-30C15-30 19-4 0 10Z"/><path d="M0 10C-8-6-6-28 0-30C6-28 8-6 0 10Z"/><rect x="-3" y="10" width="6" height="8" rx="2"/></svg><h3>Wohnzimmer kochen</h3><p>Wir kochen bei euch zuhause, ganz privat.</p></article>
       <article class="lc rv d1"><span class="no">06</span><svg viewBox="-38 -38 76 76" aria-hidden="true"><path d="M-18-30V-10C-18-2-6-2-6-10V-30M-12-30V-6M-12-2V30"/><path d="M14-30C22-20 22-2 14 4V30H10V-30Z"/></svg><h3>Planung</h3><p>Von der Menüwahl bis zum Aufbau, gemeinsam mit euch.</p></article>
       <article class="lc rv d2"><span class="no">07</span><svg viewBox="-38 -38 76 76" aria-hidden="true"><rect x="-16" y="-20" width="28" height="44" rx="3"/><path d="M12-12H22C29-12 29 12 22 12H12"/><path d="M-16-20C-21-30-8-34-4-28C0-34 12-32 12-20"/><path d="M-8-8V16M0-8V16"/></svg><h3>Getränke</h3><p>Bier, Wein, Softdrinks und mehr auf Anfrage.</p></article>
-      <a class="lc lphoto rv d3" href="#anfrage"><img loading="lazy" src="assets/e25.webp" alt="Fleischspieße über Glut und Flammen"><span class="lp-shade"></span><div class="lp-txt"><span class="lab">Euer Event?</span><strong>Jetzt anfragen</strong><span class="lp-arr">→</span></div></a>
+      <a class="lc lcta rv d3" href="#anfrage"><svg class="lcta-deco" viewBox="-38 -38 76 76" aria-hidden="true"><path d="M0-30C9-15 21-8 19 8C17 21 5 27 0 27C-7 27-19 21-17 6C-16-3-9-5-7-15C-2-11-2-18 0-30Z"/><path d="M0 8C6 12 7 18 0 22C-7 18-6 12 0 8Z"/></svg><span class="lab">Euer Event?</span><strong>Jetzt<br>anfragen</strong><p>Wir melden uns persönlich mit einem Vorschlag.</p><span class="lcta-arr" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -1271,7 +1284,7 @@ document.querySelectorAll('.rv,.h2').forEach(el=>io.observe(el));
   (function loop(){x+=(tx-x)*.25;y+=(ty-y)*.25;c.style.left=x+'px';c.style.top=y+'px';requestAnimationFrame(loop)})();
   document.addEventListener('mouseover',e=>{
     const t=e.target;
-    c.classList.toggle('photo',!!t.closest('.hero,.hs-item,#lb,.beast'));
+    c.classList.toggle('photo',!!t.closest('.hero,.hs-item,#lb,.beast,.lcta,.pc-img,.pband,.duo,.team-photo,.pimg'));
     c.classList.toggle('view',!!t.closest('.hs-item'));
     c.classList.toggle('big',!!t.closest('a,button,summary,.beast')&&!t.closest('.hs-item'));
   });
