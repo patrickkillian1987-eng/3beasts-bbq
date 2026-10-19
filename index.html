@@ -599,6 +599,13 @@ p,li{font-weight:500;letter-spacing:.04em}
 .leist-head>p,.pk-lead{font-family:var(--serif)}
 .mail-big,.c-info li a{font-family:var(--lab)}
 .mail-big{font-family:var(--serif)}
+
+/* Grillplatte neben dem Text */
+.story{align-items:start}
+.story-l{display:flex;flex-direction:column;gap:18px}
+.story-fig{width:100%;aspect-ratio:4/3;margin:0;overflow:hidden;background:#111;box-shadow:12px 12px 0 -1px rgba(255,92,22,.85)}
+.story-fig figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:46px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#fff;font-size:.82rem}
+@media(max-width:800px){.story-fig{box-shadow:8px 8px 0 -1px rgba(255,92,22,.85);margin-bottom:10px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -697,7 +704,7 @@ p,li{font-weight:500;letter-spacing:.04em}
       </div>
     </div>
     <div class="story">
-      <div><span class="lab">Unsere Leidenschaft</span></div>
+      <div class="story-l"><span class="lab">Unsere Leidenschaft</span><figure class="story-fig pimg rv"><img data-par="0.06" loading="lazy" src="assets/6.webp" alt="Gemischte Grillplatte mit Rippchen, Haxe und Würsten auf dem Holzteller"><figcaption class="lab">Die Grillplatte vom Holzteller</figcaption></figure></div>
       <div class="txt rv">
         <p>Wir lieben es, wenn der Duft von glühender Kohle und frisch gegrilltem Fleisch die Luft erfüllt, wenn Freunde und Familie sich um den Grill versammeln und der Moment einfach perfekt ist.</p>
         <p>Für uns geht es dabei nicht nur um den Geschmack, sondern um die Freude, die es anderen bringt. Es gibt nichts Schöneres, als in glückliche Gesichter zu schauen, während jemand in einen saftigen Fleischspieß beißt oder die Aromen unserer Kreationen genießt.</p>
