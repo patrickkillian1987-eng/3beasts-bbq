@@ -860,6 +860,23 @@ img{image-rendering:auto}
 .indiv-list b{font-family:var(--head);font-weight:400;text-transform:uppercase;letter-spacing:.01em;font-size:1.45rem;line-height:1.1;margin-top:64px}
 .indiv-list .il-t{color:#d6d6d6;font-size:1rem;line-height:1.35;position:static;width:auto;height:auto}
 @media(max-width:560px){.indiv-list{grid-template-columns:1fr}.indiv-list li{min-height:0}.indiv-list b{margin-top:56px}}
+
+/* Galerie: Desktop scrollt nach unten, Handy wischt seitlich */
+.hs-hint{display:none}
+@media(max-width:900px){
+  .hs{height:auto!important}
+  .hs-stick{position:static;height:auto;padding:clamp(60px,12vw,90px) 0 40px}
+  .hs-head{flex-direction:column;align-items:flex-start;gap:18px;margin-bottom:26px}
+  .hs-hint{display:inline-flex;align-items:center;gap:12px;color:#ffb040;font-size:.8rem}
+  .hs-hint b{font-weight:400;font-size:1.3rem;animation:hintNudge 1.4s ease-in-out infinite}
+  @keyframes hintNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+  .hs-track{width:auto;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 var(--pad) 12px;gap:14px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .hs-track::-webkit-scrollbar{display:none}
+  .hs-item{flex:0 0 78vw;width:78vw;max-width:420px;scroll-snap-align:center}
+  .hs-item:nth-child(even){margin-top:0}
+  .hs-item .ph,.hs-item:nth-child(even) .ph{aspect-ratio:4/5}
+  .hs-prog{margin:22px var(--pad) 0}
+}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1098,7 +1115,7 @@ img{image-rendering:auto}
 <section class="hs" id="galerie">
   <div class="hs-stick">
     <div class="hs-head">
-      <div><div class="idx lab" style="margin-bottom:18px">(04) Galerie</div><h2 class="h2">Appetit <i>gefällig?</i></h2></div>
+      <div><div class="idx lab" style="margin-bottom:18px">(04) Galerie</div><h2 class="h2">Appetit <i>gefällig?</i></h2></div><span class="hs-hint lab" aria-hidden="true"><i></i>Seitlich wischen<b>→</b></span>
     </div>
     <div class="hs-track" id="track">
       <figure class="hs-item"><div class="ph"><img decoding="async" loading="lazy" src="assets/t_e25.webp" data-full="assets/e25.webp" alt="Fleischspieße über Glut und Flammen"></div><figcaption class="lab"><span>Spieße überm Feuer</span><span>01</span></figcaption></figure>
@@ -1537,8 +1554,11 @@ document.querySelectorAll('.rv,.h2').forEach(el=>io.observe(el));
 (function(){
   const hs=document.getElementById('galerie'),tr=document.getElementById('track'),bar=document.getElementById('hsBar');
   let max=0;
-  function size(){vh=innerHeight;max=Math.max(0,tr.scrollWidth-innerWidth);hs.style.height=(max+vh)+'px';upd()}
-  let tick=false,lastW=innerWidth,vh=innerHeight;function draw(){tick=false;const r=hs.getBoundingClientRect();if(r.bottom<-200||r.top>vh+200)return;const p=clamp(-r.top/(hs.offsetHeight-vh||1),0,1);tr.style.transform='translate3d('+(-p*max).toFixed(1)+'px,0,0)';bar.style.transform='scaleX('+p.toFixed(4)+')'}
+  const mob=()=>innerWidth<=900;
+  function mobBar(){const m=tr.scrollWidth-tr.clientWidth;bar.style.transform='scaleX('+(m>0?Math.max(.08,tr.scrollLeft/m):.08).toFixed(4)+')'}
+  tr.addEventListener('scroll',()=>{if(mob())mobBar()},{passive:true});
+  function size(){vh=innerHeight;if(mob()){hs.style.height='';tr.style.transform='';mobBar();return}max=Math.max(0,tr.scrollWidth-innerWidth);hs.style.height=(max+vh)+'px';upd()}
+  let tick=false,lastW=innerWidth,vh=innerHeight;function draw(){tick=false;if(mob())return;const r=hs.getBoundingClientRect();if(r.bottom<-200||r.top>vh+200)return;const p=clamp(-r.top/(hs.offsetHeight-vh||1),0,1);tr.style.transform='translate3d('+(-p*max).toFixed(1)+'px,0,0)';bar.style.transform='scaleX('+p.toFixed(4)+')'}
   function upd(){if(!tick){tick=true;requestAnimationFrame(draw)}}
   addEventListener('scroll',upd,{passive:true});addEventListener('resize',()=>{if(innerWidth!==lastW){lastW=innerWidth;vh=innerHeight;size()}});addEventListener('load',size);
   tr.querySelectorAll('img').forEach(i=>i.addEventListener('load',size));size();
