@@ -946,6 +946,41 @@ img{image-rendering:auto}
 #anfrage.sec{padding-top:clamp(50px,6vw,90px)}
 .contact>.wrap>.idx,.contact>.wrap>.h2{display:none}
 #pakete{background:linear-gradient(#f1f0ec,rgba(241,240,236,0)) top/100% clamp(120px,14vw,200px) no-repeat;padding-top:clamp(130px,16vw,220px)}
+
+/* ================= FAQ im Seitenstil ================= */
+.faq2 .faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr);gap:clamp(30px,6vw,100px);align-items:start}
+.faq2 .faq-side{position:sticky;top:110px}
+.faq2 .faq-card{margin-top:clamp(26px,3vw,44px);position:relative;padding:clamp(22px,2.6vw,34px);background:linear-gradient(155deg,#ffbe46,#ff7a1f 55%,#e0380a);color:#1a0800;overflow:hidden}
+.faq2 .faq-card .lab{color:rgba(26,8,0,.75);display:block}
+.faq2 .faq-card strong{display:block;font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:clamp(1.8rem,2.6vw,2.6rem);line-height:1.1;margin:8px 0 6px}
+.faq2 .faq-card p{color:rgba(26,8,0,.85);font-weight:500;margin-bottom:20px}
+.faq2 .faq-card .btn.solid{background:#1a0800;color:#fff;border-color:#1a0800}
+.faq2 .faq-card .btn.solid::before{background:#fff}
+.faq2 .faq-card .btn.solid:hover{color:#1a0800}
+.faq2 .faq-list{display:grid;gap:10px}
+.faq2 details{background:linear-gradient(180deg,rgba(16,16,16,.93),rgba(4,4,4,.9));border:1px solid rgba(255,255,255,.16);border-top:1px solid rgba(255,255,255,.16);position:relative;transition:border-color .4s,box-shadow .5s,background .4s}
+.faq2 details:first-child{border-top:1px solid rgba(255,255,255,.16)}
+.faq2 details::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(180deg,#ffbe46,#ff5c16);transition:width .4s var(--ease)}
+.faq2 details:hover{border-color:rgba(255,130,50,.5)}
+.faq2 details[open]{border-color:rgba(255,130,50,.7);box-shadow:0 16px 44px rgba(0,0,0,.5),0 0 36px rgba(255,90,20,.1)}
+.faq2 details[open]::before{width:4px}
+.faq2 summary{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:10px;padding:20px 20px 20px 22px;cursor:pointer;list-style:none;text-shadow:none;font-size:clamp(1.15rem,1.7vw,1.5rem);position:static}
+.faq2 summary::-webkit-details-marker{display:none}
+.faq2 summary::after{display:none!important}
+.faq2 summary em{font-style:normal;font-family:var(--lab);font-weight:600;letter-spacing:.14em;font-size:.85rem;color:#ff7a2a}
+.faq2 summary span{font-family:var(--lab);font-weight:600;letter-spacing:.05em;text-transform:uppercase;line-height:1.25}
+.faq2 details[open] summary{color:#ffbe46}
+.faq2 summary i{position:relative;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);justify-self:end;transition:background .4s,border-color .4s,transform .5s var(--ease)}
+.faq2 summary i::before,.faq2 summary i::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;margin:-1px 0 0 -7px;background:#fff;transition:transform .4s var(--ease),background .3s}
+.faq2 summary i::after{transform:rotate(90deg)}
+.faq2 details:hover summary i{border-color:#ff7a2a}
+.faq2 details[open] summary i{background:linear-gradient(135deg,#ffbe46,#ff5c16);border-color:transparent;transform:rotate(180deg)}
+.faq2 details[open] summary i::before,.faq2 details[open] summary i::after{background:#1a0800}
+.faq2 details[open] summary i::after{transform:rotate(0)}
+.faq2 details p{padding:0 74px 24px 76px;color:#e2e2e2;max-width:none;font-size:1.1rem;animation:faqIn .5s var(--ease)}
+@keyframes faqIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.faq2 .faq-grid{grid-template-columns:1fr}.faq2 .faq-side{position:static}}
+@media(max-width:560px){.faq2 summary{grid-template-columns:34px minmax(0,1fr) 38px;padding:16px 14px}.faq2 details p{padding:0 18px 20px 18px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1293,16 +1328,27 @@ img{image-rendering:auto}
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="sec bgword" id="faq" style="padding-top:0" data-word="FEUER">
+<section class="sec bgword faq2" id="faq" style="padding-top:0" data-word="FEUER">
   <div class="wrap faq-grid">
-    <div><div class="idx lab">(07) FAQ</div><h2 class="h2"><span class="mask"><span>Gut</span></span><span class="mask"><span><i>zu wissen</i></span></span></h2></div>
-    <div class="rv">
-      <details><summary>Wie früh sollten wir anfragen?</summary><p>So früh wie möglich – besonders Sommerwochenenden und Hochzeiten sind schnell vergeben. Spontane Anfragen prüfen wir aber gern.</p></details>
-      <details><summary>Wie viele Gäste könnt ihr versorgen?</summary><p>Von der kleinen Feier bis zum größeren Event. Schreibt uns eure Gästezahl, dann planen wir Menge, Equipment und Personal passend dazu.</p></details>
-      <details><summary>Gibt es vegetarische und vegane Gerichte?</summary><p>Ja. Neben Fleisch vom Grill bieten wir z. B. Caprese-Spieße, kalte Suppen, Antipasti und Gemüse. Allergien und Unverträglichkeiten berücksichtigen wir im Menü.</p></details>
-      <details><summary>Grillt ihr direkt bei uns vor Ort?</summary><p>Ja, das Live-Grillen ist unser Markenzeichen. Wir bringen unser Equipment mit und sagen euch vorab, was wir an Platz und Strom benötigen.</p></details>
-      <details><summary>Könnt ihr auch Getränke bereitstellen?</summary><p>Ja, auf Anfrage. Wir stellen Bier, Wein &amp; Sekt, Softdrinks, Longdrinks und warme Getränke bereit. Schreibt uns einfach, was ihr braucht.</p></details>
-      <details><summary>Sind Geschirr, Besteck und Personal buchbar?</summary><p>Auf Wunsch kümmern wir uns um das gesamte Drumherum. Sagt uns, was ihr braucht – wir machen euch ein Gesamtangebot.</p></details>
+    <div class="faq-side">
+      <div class="idx lab">Häufige Fragen</div>
+      <h2 class="h2"><span class="mask"><span>Gut</span></span><span class="mask"><span><i>zu</i> <span class="o">wissen</span></span></span></h2>
+      <div class="faq-card rv">
+        <span class="lab">Noch eine Frage?</span>
+        <strong>Schreibt uns direkt.</strong>
+        <p>Wir antworten schnell und persönlich.</p>
+        <a class="btn solid" data-wal href="https://wa.me/" target="_blank" rel="noopener">Per WhatsApp fragen</a>
+      </div>
+    </div>
+    <div class="faq-list rv">
+      <details name="faq"><summary><em>01</em><span>Wie früh sollten wir anfragen?</span><i aria-hidden="true"></i></summary><p>So früh wie möglich. Besonders Sommerwochenenden und Hochzeiten sind schnell vergeben. Spontane Anfragen prüfen wir aber gern.</p></details>
+      <details name="faq"><summary><em>02</em><span>Wie viele Gäste könnt ihr versorgen?</span><i aria-hidden="true"></i></summary><p>Von der kleinen Feier bis zum größeren Event. Schreibt uns eure Gästezahl, dann planen wir Menge, Equipment und Personal passend dazu.</p></details>
+      <details name="faq"><summary><em>03</em><span>Grillt ihr direkt bei uns vor Ort?</span><i aria-hidden="true"></i></summary><p>Ja, das Live-Grillen ist unser Markenzeichen. Wir bringen unser Equipment mit und sagen euch vorab, was wir an Platz und Strom benötigen.</p></details>
+      <details name="faq"><summary><em>04</em><span>Gibt es vegetarische und vegane Gerichte?</span><i aria-hidden="true"></i></summary><p>Ja. Neben Fleisch vom Grill bieten wir zum Beispiel Tomaten-Mozzarella-Spieße, Gazpacho, Antipasti, Grillgemüse und viele Salate. Allergien und Unverträglichkeiten berücksichtigen wir im Menü.</p></details>
+      <details name="faq"><summary><em>05</em><span>Könnt ihr individuelle Gerichte zubereiten?</span><i aria-hidden="true"></i></summary><p>Ja. Unsere Speisekarte ist eine Auswahl. Wir entwickeln gerne eigene Gerichte und komplett maßgeschneiderte Menüs nach euren Wünschen.</p></details>
+      <details name="faq"><summary><em>06</em><span>Könnt ihr auch Getränke bereitstellen?</span><i aria-hidden="true"></i></summary><p>Ja, auf Anfrage. Wir stellen Bier, Wein und Sekt, Softdrinks, Longdrinks und warme Getränke bereit. Schreibt uns, was ihr braucht.</p></details>
+      <details name="faq"><summary><em>07</em><span>Sind Geschirr, Besteck und Personal buchbar?</span><i aria-hidden="true"></i></summary><p>Auf Wunsch kümmern wir uns um das gesamte Drumherum. Sagt uns, was ihr braucht, dann machen wir euch ein Gesamtangebot.</p></details>
+      <details name="faq"><summary><em>08</em><span>Wie läuft eine Anfrage ab?</span><i aria-hidden="true"></i></summary><p>Ihr schickt uns Datum, Anlass und Gästezahl, am schnellsten per WhatsApp. Wir melden uns persönlich, stellen mit euch das Menü zusammen und machen euch ein unverbindliches Angebot.</p></details>
     </div>
   </div>
 </section>
