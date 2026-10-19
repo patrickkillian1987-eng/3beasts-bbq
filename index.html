@@ -432,7 +432,7 @@ details{background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
   <canvas id="introFx"></canvas>
   <div class="intro-glow"></div>
   <div class="intro-meta lab"><span>3Beasts BBQ</span><span>Catering vom Feuer</span></div>
-  <div class="intro-logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png" alt="3Beasts BBQ"><img class="il-flame" src="assets/logo_flame.png" alt=""></div>
+  <div class="intro-logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=2" alt="3Beasts BBQ"><img class="il-flame" src="assets/logo_flame.png" alt=""></div>
   <div class="intro-count"><span id="cnt">0</span><small>%</small></div>
   <div class="intro-btns show" id="introBtns">
     <button class="btn" id="enterQuiet" style="color:#fff;padding:14px 28px">Überspringen</button>
@@ -801,7 +801,7 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
     // Logo fliegt in die Navigation, statt zu verschwinden
     const src=document.querySelector('.intro-logo img'),r=src.getBoundingClientRect();
     const padL=parseFloat(getComputedStyle(document.querySelector('.nav-in')).paddingLeft)||20,size=innerWidth<=700?58:64;
-    const c=src.cloneNode();c.src='assets/logo_color.png';c.className='';
+    const c=src.cloneNode();c.src='assets/logo_color.png?v=2';c.className='';
     c.style.cssText='position:fixed;z-index:310;left:'+r.left+'px;top:'+r.top+'px;width:'+r.width+'px;height:'+r.height+'px;object-fit:contain;transform-origin:0 0;pointer-events:none;transition:transform 1.5s cubic-bezier(.76,0,.24,1),filter 1.4s ease';
     document.body.appendChild(c); document.querySelector('.intro-logo').style.visibility='hidden';
     intro.classList.add('out'); document.body.classList.remove('lock'); window.scrollTo({top:0,behavior:'instant'});
