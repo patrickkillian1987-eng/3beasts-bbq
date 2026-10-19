@@ -139,7 +139,7 @@ nav.ready .brand img{opacity:1}
 .hero-media{position:absolute;inset:-8% 0 -8%;will-change:transform}
 .hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-media img{opacity:0;z-index:0;transition:opacity 2.2s cubic-bezier(.4,0,.2,1);animation:kb 22s ease-in-out infinite alternate;will-change:opacity,transform;backface-visibility:hidden}
-.hero-media img:nth-of-type(2){animation-delay:-6s}.hero-media img:nth-of-type(3){animation-delay:-12s}.hero-media img:nth-of-type(4){animation-delay:-3s}
+.hero-media img:nth-of-type(2){animation-delay:-6s}.hero-media img:nth-of-type(3){animation-delay:-12s}.hero-media img:nth-of-type(4){animation-delay:-3s}.hero-media img:nth-of-type(5){animation-delay:-9s}
 .hero-media img.was{opacity:1;z-index:1}
 .hero-media img.on{opacity:1;z-index:2}
 @keyframes kb{from{transform:scale(1.05) translate3d(0,0,0)}to{transform:scale(1.16) translate3d(-1.5%,-1%,0)}}
@@ -437,9 +437,10 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
 <!-- ============ HERO ============ -->
 <header class="hero" id="hero">
   <div class="hero-media" id="heroMedia">
-    <img class="on" src="assets/6.webp" alt="Gemischte Grillplatte mit Rippchen, Haxe und Würsten">
+    <img class="on" src="assets/e25.webp" alt="Zwei Fleischspieße über offenem Feuer und Glut">
+    <img src="assets/6.webp" alt="Gemischte Grillplatte mit Rippchen, Haxe und Würsten">
+    <img src="assets/e24.webp" alt="Bambusbrett mit 3Beasts-BBQ-Logo, Rinderfilet, Blauschimmelkäse und Rosmarin">
     <img src="assets/e14.webp" alt="Hand nimmt einen Tomaten-Mozzarella-Spieß vom Buffet">
-    <img src="assets/e20.webp" alt="Mini Cheeseburger auf Holzbrett">
     <img src="assets/e19.webp" alt="Pimientos mit Garnelen">
     <!-- Echtes Video: Datei als assets/hero-grill.mp4 ablegen (16:9, ca. 8–15 s). Sonst bleibt das Foto mit Kamerafahrt. -->
     <video id="heroVideo" muted loop playsinline preload="auto" aria-hidden="true" src="assets/hero-grill.mp4"></video>
@@ -477,8 +478,8 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
     <p class="rw" id="mani">BBQ ist für uns mehr als nur das Zubereiten von Essen. Es ist eine Leidenschaft, ein Erlebnis, das Menschen zusammenbringt.</p>
       </div>
       <div class="m-collage" aria-hidden="true">
-        <figure class="mc1 pimg"><img data-par="-0.07" loading="lazy" src="assets/e15.webp" alt=""></figure>
-        <figure class="mc2 pimg"><img data-par="0.1" loading="lazy" src="assets/6.webp" alt=""></figure>
+        <figure class="mc1 pimg"><img data-par="-0.07" loading="lazy" src="assets/e26.webp" alt="Koch am Fassgrill mit Fleischspießen und Gemüse auf der Plancha"></figure>
+        <figure class="mc2 pimg"><img data-par="0.1" loading="lazy" src="assets/e25.webp" alt=""></figure>
         <figure class="mc3 pimg"><img data-par="-0.05" loading="lazy" src="assets/e14.webp" alt=""></figure>
       </div>
     </div>
@@ -496,8 +497,8 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
     <p class="close rv">BBQ ist unsere Art, Liebe und Gastfreundschaft auszudrücken, mit jedem Gericht, jedem Feuer und jeder gemeinsamen Mahlzeit.</p>
       </div>
       <div class="hr-photos">
-        <figure class="hp1 pimg"><img data-par="0.08" loading="lazy" src="assets/e17.webp" alt="Mini Wrap Hähnchen"></figure>
-        <figure class="hp2 pimg"><img data-par="-0.08" loading="lazy" src="assets/e20.webp" alt="Mini Cheeseburger"></figure>
+        <figure class="hp1 pimg"><img data-par="0.08" loading="lazy" src="assets/e29.webp" alt="Buffet mit Mini-Burgern und Tomaten-Mozzarella-Spießen unter dem 3Beasts-Banner"></figure>
+        <figure class="hp2 pimg"><img data-par="-0.08" loading="lazy" src="assets/e27.webp" alt="Grillplatte mit Würsten, Rippchen und Spitzpaprika"></figure>
       </div>
     </div>
   </div>
@@ -528,12 +529,12 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
       <h2 class="h2"><span class="mask"><span>Drei Beasts.</span></span><span class="mask"><span><i>ein</i> Feuer.</span></span></h2>
       <div class="bh-photos" aria-hidden="true">
         <figure class="pimg"><img data-par="0.06" loading="lazy" src="assets/e19.webp" alt=""></figure>
-        <figure class="pimg"><img data-par="-0.06" loading="lazy" src="assets/e18.webp" alt=""></figure>
+        <figure class="pimg"><img data-par="-0.06" loading="lazy" src="assets/e28.webp" alt=""></figure>
         <figure class="pimg"><img data-par="0.06" loading="lazy" src="assets/3.webp" alt=""></figure>
       </div>
     </div>
     <div class="beasts">
-      <div class="beast rv" data-img="assets/6.webp"><span class="n">01</span><h3>Das Feuer</h3><p>Rippchen, Haxen, Würste und Steaks – langsam gegart, scharf angegrillt, mit Kräuter-Chimichurri veredelt.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/6.webp" alt=""></div>
+      <div class="beast rv" data-img="assets/e25.webp"><span class="n">01</span><h3>Das Feuer</h3><p>Rippchen, Haxen, Würste und Steaks – langsam gegart, scharf angegrillt, mit Kräuter-Chimichurri veredelt.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/e25.webp" alt=""></div>
       <div class="beast rv" data-img="assets/e15.webp"><span class="n">02</span><h3>Die Frische</h3><p>Fingerfood zum Staunen: Caprese-Spieße, knusprige Bällchen, kalte Suppen im Glas, Bretter voller Antipasti.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/e15.webp" alt=""></div>
       <div class="beast rv" data-img="assets/3.webp"><span class="n">03</span><h3>Der Zucker</h3><p>Cheesecake im Glas mit Beeren, warme Blätterteig-Törtchen mit Minze – kleine Desserts mit großer Wirkung.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/3.webp" alt=""></div>
     </div>
@@ -578,25 +579,38 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
       <span class="lab" style="color:var(--g)">Scrollen →</span>
     </div>
     <div class="hs-track" id="track">
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/6.webp" alt="Gemischte Grillplatte mit Chimichurri"></div><figcaption class="lab"><span>Die Grillplatte</span><span>01</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e14.webp" alt="Hand nimmt einen Spieß vom Buffet"></div><figcaption class="lab"><span>Frisch vom Buffet</span><span>02</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/2.webp" alt="Antipasti-Brett mit Käse, Salami und Oliven"></div><figcaption class="lab"><span>Antipasti-Brett</span><span>03</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e15.webp" alt="Bunte Tomaten-Mozzarella-Spieße"></div><figcaption class="lab"><span>Tomaten-Mozzarella-Spieße</span><span>04</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e20.webp" alt="Mini Cheeseburger"></div><figcaption class="lab"><span>Mini Cheeseburger</span><span>05</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/5.webp" alt="Caprese-Spieße auf Holzetagere"></div><figcaption class="lab"><span>Caprese-Spieße</span><span>06</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e17.webp" alt="Mini Wrap Hähnchen"></div><figcaption class="lab"><span>Mini Wrap Hähnchen</span><span>07</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/4.webp" alt="Knusprige Bällchen auf Chutney"></div><figcaption class="lab"><span>Knusprige Bällchen</span><span>08</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e19.webp" alt="Pimientos mit Garnelen"></div><figcaption class="lab"><span>Pimientos mit Garnelen</span><span>09</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/3.webp" alt="New York Cheesecake im Glas"></div><figcaption class="lab"><span>New York Cheesecake</span><span>10</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e18.webp" alt="Salat im Glas auf Holzbock"></div><figcaption class="lab"><span>Salat im Glas</span><span>11</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/7.webp" alt="Blätterteig-Törtchen mit Banane"></div><figcaption class="lab"><span>Törtchen mit Banane</span><span>12</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e16.webp" alt="Grüne Suppe in der Bügelflasche"></div><figcaption class="lab"><span>Suppe in der Flasche</span><span>13</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/8.webp" alt="Kalte Tomatensuppe im Glas"></div><figcaption class="lab"><span>Gazpacho im Glas</span><span>14</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e25.webp" alt="Fleischspieße über Glut und Flammen"></div><figcaption class="lab"><span>Spieße überm Feuer</span><span>01</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/6.webp" alt="Gemischte Grillplatte mit Chimichurri"></div><figcaption class="lab"><span>Die Grillplatte</span><span>02</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e14.webp" alt="Hand nimmt einen Spieß vom Buffet"></div><figcaption class="lab"><span>Frisch vom Buffet</span><span>03</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e26.webp" alt="Koch am Fassgrill mit Spießen und Gemüse"></div><figcaption class="lab"><span>Am Fassgrill</span><span>04</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/2.webp" alt="Antipasti-Brett mit Käse, Salami und Oliven"></div><figcaption class="lab"><span>Antipasti-Brett</span><span>05</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e24.webp" alt="Rinderfilet, Käse und Rosmarin auf dem Logo-Brett"></div><figcaption class="lab"><span>Frisch vom Brett</span><span>06</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e15.webp" alt="Bunte Tomaten-Mozzarella-Spieße"></div><figcaption class="lab"><span>Tomaten-Mozzarella-Spieße</span><span>07</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e29.webp" alt="Buffet mit Mini-Burgern und Mozzarella-Spießen"></div><figcaption class="lab"><span>Mini-Burger & Spieße</span><span>08</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e20.webp" alt="Mini Cheeseburger"></div><figcaption class="lab"><span>Mini Cheeseburger</span><span>09</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/5.webp" alt="Caprese-Spieße auf Holzetagere"></div><figcaption class="lab"><span>Caprese-Spieße</span><span>10</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e28.webp" alt="Gegrilltes Gemüse und Oliven in der Holzschale"></div><figcaption class="lab"><span>Gegrilltes Gemüse</span><span>11</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e17.webp" alt="Mini Wrap Hähnchen"></div><figcaption class="lab"><span>Mini Wrap Hähnchen</span><span>12</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/4.webp" alt="Knusprige Bällchen auf Chutney"></div><figcaption class="lab"><span>Knusprige Bällchen</span><span>13</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e27.webp" alt="Grillplatte mit Würsten, Rippchen und Spitzpaprika"></div><figcaption class="lab"><span>Grillplatte</span><span>14</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e19.webp" alt="Pimientos mit Garnelen"></div><figcaption class="lab"><span>Pimientos mit Garnelen</span><span>15</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/3.webp" alt="New York Cheesecake im Glas"></div><figcaption class="lab"><span>New York Cheesecake</span><span>16</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e30.webp" alt="3Beasts-BBQ-Stand mit Banner und Buffet"></div><figcaption class="lab"><span>Unser Stand</span><span>17</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e18.webp" alt="Salat im Glas auf Holzbock"></div><figcaption class="lab"><span>Salat im Glas</span><span>18</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/7.webp" alt="Blätterteig-Törtchen mit Banane"></div><figcaption class="lab"><span>Törtchen mit Banane</span><span>19</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e16.webp" alt="Grüne Suppe in der Bügelflasche"></div><figcaption class="lab"><span>Suppe in der Flasche</span><span>20</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/8.webp" alt="Kalte Tomatensuppe im Glas"></div><figcaption class="lab"><span>Gazpacho im Glas</span><span>21</span></figcaption></figure>
     </div>
     <div class="hs-prog"><i id="hsBar"></i></div>
   </div>
 </section>
 <div id="lb"><img alt=""><button>Schließen</button></div>
+
+<!-- ============ BAND: Stand ============ -->
+<section class="pband">
+  <div class="pband-media"><img data-par="0.1" loading="lazy" src="assets/e30.webp" alt="3Beasts-BBQ-Stand mit Banner, Burgern, Salaten und Spießen" style="object-position:50% 40%"></div>
+  <div class="pband-txt"><span class="lab">Live am Grill</span><p class="rv">Wir füllen euer Event <i>mit Geschmack.</i></p></div>
+</section>
 
 <!-- ============ ABLAUF ============ -->
 <section class="sec light" id="ablauf">
@@ -621,9 +635,9 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
 
 <!-- ============ DUO ============ -->
 <section class="duo">
-  <figure class="duo-a"><img data-par="-0.08" loading="lazy" src="assets/e19.webp" alt="Pimientos mit Garnelen auf Bananenblatt"><figcaption class="lab">Pimientos mit Garnelen</figcaption></figure>
-  <figure class="duo-b"><img data-par="0.1" loading="lazy" src="assets/e20.webp" alt="Mini Cheeseburger auf Holzbrett"><figcaption class="lab">Mini Cheeseburger</figcaption></figure>
-  <figure class="duo-c"><img data-par="-0.06" loading="lazy" src="assets/e17.webp" alt="Mini Wrap Hähnchen"><figcaption class="lab">Mini Wrap Hähnchen</figcaption></figure>
+  <figure class="duo-a"><img data-par="-0.08" loading="lazy" src="assets/e24.webp" alt="Rinderfilet, Blauschimmelkäse und Rosmarin auf dem 3Beasts-Brett"><figcaption class="lab">Frisch vom Brett</figcaption></figure>
+  <figure class="duo-b"><img data-par="0.1" loading="lazy" src="assets/e28.webp" alt="Gegrilltes Gemüse, Oliven und Tomaten in der Holzschale"><figcaption class="lab">Gegrilltes Gemüse</figcaption></figure>
+  <figure class="duo-c"><img data-par="-0.06" loading="lazy" src="assets/e19.webp" alt="Pimientos mit Garnelen auf Bananenblatt"><figcaption class="lab">Pimientos mit Garnelen</figcaption></figure>
 </section>
 
 <!-- ============ PAKETE ============ -->
