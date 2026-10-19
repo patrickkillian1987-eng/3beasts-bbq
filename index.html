@@ -776,10 +776,10 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
     ctx.clearRect(0,0,W,H); tt+=dt;
     ctx.globalCompositeOperation='lighter';
     // Flammen am unteren Rand
-    { let n2=(W/10)*dt; while(n2>0){ if(Math.random()<Math.min(1,n2)){const x=Math.random()*W,wob=.5+.5*Math.sin(x*.007+tt*1.7)*Math.sin(x*.0027-tt*.5);
-        if(Math.random()<.25+wob*.75) fl.push({x:x,y:H+16,vx:(Math.random()-.5)*28,vy:-(80+Math.random()*170)*(.6+wob*.9),l:0,m:.8+Math.random()*1.0,s:38+Math.random()*70,ph:Math.random()*6});} n2-=1; }
+    { let n2=(W/16)*dt; while(n2>0){ if(Math.random()<Math.min(1,n2)){const x=Math.random()*W,wob=.5+.5*Math.sin(x*.007+tt*1.7)*Math.sin(x*.0027-tt*.5);
+        if(Math.random()<.25+wob*.75) fl.push({x:x,y:H+16,vx:(Math.random()-.5)*28,vy:-(70+Math.random()*130)*(.6+wob*.8),l:0,m:.8+Math.random()*.9,s:28+Math.random()*52,ph:Math.random()*6});} n2-=1; }
       fl=fl.filter(p=>p.l<p.m);
-      for(const p of fl){p.l+=dt;p.x+=(p.vx+Math.sin(p.l*8+p.ph)*32)*dt;p.y+=p.vy*dt;const k=p.l/p.m,sz=p.s*(1-k*.55),al=.2*(1-k)*(1-k);
+      for(const p of fl){p.l+=dt;p.x+=(p.vx+Math.sin(p.l*8+p.ph)*32)*dt;p.y+=p.vy*dt;const k=p.l/p.m,sz=p.s*(1-k*.55),al=.095*(1-k)*(1-k);
         const gr=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,sz);gr.addColorStop(0,'rgba(255,238,210,'+al+')');gr.addColorStop(.45,'rgba(255,165,80,'+(al*.65)+')');gr.addColorStop(1,'rgba(255,90,20,0)');ctx.fillStyle=gr;ctx.fillRect(p.x-sz,p.y-sz,sz*2,sz*2);} }
     // Grillfunken: überall + direkt aus der Logo-Flamme
     const lr=logoEl?logoEl.getBoundingClientRect():null;
