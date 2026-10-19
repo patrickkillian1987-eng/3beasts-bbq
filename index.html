@@ -128,7 +128,8 @@ nav.ready .brand img{opacity:1}
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;display:flex;align-items:flex-end;background:#000}
 .hero-media{position:absolute;inset:-8% 0 -8%;will-change:transform}
 .hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-media img{animation:kb 26s ease-in-out infinite alternate;filter:contrast(1.08) saturate(.9)}
+.hero-media img{opacity:0;transform:scale(1.04);transition:opacity 1.8s ease;filter:contrast(1.08) saturate(.9)}
+.hero-media img.on{opacity:1;animation:kb 9s ease-out forwards}
 @keyframes kb{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.2) translate(-2%,-1.5%)}}
 .hero-media video{display:none}.hero-media video.ok{display:block}
 .hero::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,.1) 32%,rgba(0,0,0,.35) 62%,#000 100%),radial-gradient(ellipse at 30% 100%,rgba(0,0,0,.7),transparent 60%)}
@@ -155,6 +156,27 @@ nav.ready .brand img{opacity:1}
 @keyframes spin{to{transform:rotate(360deg)}}
 .badge text{font-family:var(--lab);font-weight:600;font-size:11.5px;letter-spacing:.32em;fill:#fff;text-transform:uppercase}
 @media(max-width:900px){.badge{display:none}.hero-row{flex-direction:column;align-items:flex-start}.hero-top{top:92px}.hero h1{font-size:clamp(3.4rem,17vw,9rem)}}
+
+/* ---------- Foto-Bänder ---------- */
+.pband{position:relative;min-height:min(80vh,720px);display:grid;align-items:end;overflow:hidden;background:#000}
+.pband-media{position:absolute;inset:0;overflow:hidden}
+.pband-media img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;object-position:30% 50%;will-change:transform}
+.pband::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.05) 35%,rgba(0,0,0,.75))}
+.pband-txt{position:relative;z-index:2;padding:0 var(--pad) clamp(30px,6vw,80px);max-width:1700px;margin:0 auto;width:100%}
+.pband-txt p{font-family:var(--head);text-transform:uppercase;font-size:clamp(2.2rem,5.6vw,6rem);line-height:1.12;margin-top:14px;max-width:22ch}
+.pband-txt p i{font-family:var(--serif);font-style:italic;text-transform:none}
+.duo{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:12px;padding:0 var(--pad);margin:0 auto;max-width:1700px;padding-bottom:clamp(60px,9vw,130px)}
+.duo figure{position:relative;overflow:hidden;aspect-ratio:4/5;background:#111}
+.duo-b{margin-top:clamp(30px,6vw,90px)}
+.duo img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;will-change:transform}
+.duo figcaption{position:absolute;left:0;right:0;bottom:0;padding:50px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff;z-index:1}
+@media(max-width:800px){.duo{grid-template-columns:1fr 1fr}.duo-a{grid-column:1/-1;aspect-ratio:16/10!important}.duo-b{margin-top:0}}
+.events{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,100px);margin-top:clamp(60px,8vw,110px);align-items:start}
+.ev-tall{aspect-ratio:2/3;overflow:hidden;max-height:760px;justify-self:end;width:100%;max-width:520px}
+.ev-tall img{width:100%;height:100%;object-fit:cover}
+.ev-small{margin-top:36px;aspect-ratio:3/2;overflow:hidden}
+.ev-small img{width:100%;height:100%;object-fit:cover}
+@media(max-width:800px){.events{grid-template-columns:1fr}.ev-tall{justify-self:stretch;max-width:none;aspect-ratio:3/4}}
 
 /* ---------- MARQUEE ---------- */
 .marq{overflow:hidden;border-block:1px solid var(--line);padding:22px 0;background:rgba(0,0,0,.35)}
@@ -352,7 +374,10 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
 <!-- ============ HERO ============ -->
 <header class="hero" id="hero">
   <div class="hero-media" id="heroMedia">
-    <img src="assets/6.webp" alt="Gemischte Grillplatte mit Rippchen, Haxe und Würsten">
+    <img class="on" src="assets/6.webp" alt="Gemischte Grillplatte mit Rippchen, Haxe und Würsten">
+    <img src="assets/e14.webp" alt="Hand nimmt einen Tomaten-Mozzarella-Spieß vom Buffet" loading="lazy">
+    <img src="assets/e20.webp" alt="Mini Cheeseburger auf Holzbrett" loading="lazy">
+    <img src="assets/e19.webp" alt="Pimientos mit Garnelen" loading="lazy">
     <!-- Echtes Video: Datei als assets/hero-grill.mp4 ablegen (16:9, ca. 8–15 s). Sonst bleibt das Foto mit Kamerafahrt. -->
     <video id="heroVideo" muted loop playsinline preload="auto" aria-hidden="true" src="assets/hero-grill.mp4"></video>
   </div>
@@ -405,12 +430,18 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
     <h2 class="h2"><span class="mask"><span>Drei Beasts.</span></span><span class="mask"><span><i>ein</i> Feuer.</span></span></h2>
     <div class="beasts">
       <div class="beast rv" data-img="assets/6.webp"><span class="n">01</span><h3>Das Feuer</h3><p>Rippchen, Haxen, Würste und Steaks – langsam gegart, scharf angegrillt, mit Kräuter-Chimichurri veredelt.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/6.webp" alt=""></div>
-      <div class="beast rv" data-img="assets/5.webp"><span class="n">02</span><h3>Die Frische</h3><p>Fingerfood zum Staunen: Caprese-Spieße, knusprige Bällchen, kalte Suppen im Glas, Bretter voller Antipasti.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/5.webp" alt=""></div>
+      <div class="beast rv" data-img="assets/e15.webp"><span class="n">02</span><h3>Die Frische</h3><p>Fingerfood zum Staunen: Caprese-Spieße, knusprige Bällchen, kalte Suppen im Glas, Bretter voller Antipasti.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/e15.webp" alt=""></div>
       <div class="beast rv" data-img="assets/3.webp"><span class="n">03</span><h3>Der Zucker</h3><p>Cheesecake im Glas mit Beeren, warme Blätterteig-Törtchen mit Minze – kleine Desserts mit großer Wirkung.</p><span class="arr">→</span><img class="inline" loading="lazy" src="assets/3.webp" alt=""></div>
     </div>
   </div>
 </section>
 <div class="peek" id="peek"><img alt=""></div>
+
+<!-- ============ BAND: Hand ============ -->
+<section class="pband">
+  <div class="pband-media"><img data-par="0.12" loading="lazy" src="assets/e14.webp" alt="Hand nimmt einen Tomaten-Mozzarella-Spieß"></div>
+  <div class="pband-txt"><span class="lab">Frisch angerichtet</span><p class="rv">Mit Liebe <i>angerichtet.</i><br>Mit Gastfreundschaft <i>serviert.</i></p></div>
+</section>
 
 <!-- ============ KÜCHE ============ -->
 <section class="sec light" id="kueche">
@@ -438,13 +469,20 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
       <span class="lab" style="color:var(--g)">Scrollen →</span>
     </div>
     <div class="hs-track" id="track">
-      <figure class="hs-item"><div class="ph"><img src="assets/6.webp" alt="Gemischte Grillplatte mit Chimichurri"></div><figcaption class="lab"><span>Die Grillplatte</span><span>01</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img src="assets/2.webp" alt="Antipasti-Brett mit Käse, Salami und Oliven"></div><figcaption class="lab"><span>Antipasti-Brett</span><span>02</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img src="assets/5.webp" alt="Caprese-Spieße auf Holzetagere"></div><figcaption class="lab"><span>Caprese-Spieße</span><span>03</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img src="assets/4.webp" alt="Knusprige Bällchen auf Chutney"></div><figcaption class="lab"><span>Knusprige Bällchen</span><span>04</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img src="assets/3.webp" alt="New York Cheesecake im Glas"></div><figcaption class="lab"><span>New York Cheesecake</span><span>05</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img src="assets/7.webp" alt="Blätterteig-Törtchen mit Banane"></div><figcaption class="lab"><span>Törtchen mit Banane</span><span>06</span></figcaption></figure>
-      <figure class="hs-item"><div class="ph"><img src="assets/8.webp" alt="Kalte Tomatensuppe im Glas mit essbaren Blüten"></div><figcaption class="lab"><span>Gazpacho im Glas</span><span>07</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/6.webp" alt="Gemischte Grillplatte mit Chimichurri"></div><figcaption class="lab"><span>Die Grillplatte</span><span>01</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e14.webp" alt="Hand nimmt einen Spieß vom Buffet"></div><figcaption class="lab"><span>Frisch vom Buffet</span><span>02</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/2.webp" alt="Antipasti-Brett mit Käse, Salami und Oliven"></div><figcaption class="lab"><span>Antipasti-Brett</span><span>03</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e15.webp" alt="Bunte Tomaten-Mozzarella-Spieße"></div><figcaption class="lab"><span>Tomaten-Mozzarella-Spieße</span><span>04</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e20.webp" alt="Mini Cheeseburger"></div><figcaption class="lab"><span>Mini Cheeseburger</span><span>05</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/5.webp" alt="Caprese-Spieße auf Holzetagere"></div><figcaption class="lab"><span>Caprese-Spieße</span><span>06</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e17.webp" alt="Mini Wrap Hähnchen"></div><figcaption class="lab"><span>Mini Wrap Hähnchen</span><span>07</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/4.webp" alt="Knusprige Bällchen auf Chutney"></div><figcaption class="lab"><span>Knusprige Bällchen</span><span>08</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e19.webp" alt="Pimientos mit Garnelen"></div><figcaption class="lab"><span>Pimientos mit Garnelen</span><span>09</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/3.webp" alt="New York Cheesecake im Glas"></div><figcaption class="lab"><span>New York Cheesecake</span><span>10</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e18.webp" alt="Salat im Glas auf Holzbock"></div><figcaption class="lab"><span>Salat im Glas</span><span>11</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/7.webp" alt="Blätterteig-Törtchen mit Banane"></div><figcaption class="lab"><span>Törtchen mit Banane</span><span>12</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/e16.webp" alt="Grüne Suppe in der Bügelflasche"></div><figcaption class="lab"><span>Suppe in der Flasche</span><span>13</span></figcaption></figure>
+      <figure class="hs-item"><div class="ph"><img loading="lazy" src="assets/8.webp" alt="Kalte Tomatensuppe im Glas"></div><figcaption class="lab"><span>Gazpacho im Glas</span><span>14</span></figcaption></figure>
     </div>
     <div class="hs-prog"><i id="hsBar"></i></div>
   </div>
@@ -462,8 +500,21 @@ footer{background:#000;padding:90px 0 110px;overflow:hidden}
       <div class="step rv d2"><div class="big">03</div><h3>Aufbau &amp; Grill</h3><p>Wir kommen mit Equipment und Feuer zu euch und kochen frisch vor Ort.</p></div>
       <div class="step rv d3"><div class="big">04</div><h3>Genießen</h3><p>Ihr feiert – wir kümmern uns um den Rest.</p></div>
     </div>
-    <div class="occ rv"><span>Hochzeiten</span><span>Firmenfeiern</span><span>Geburtstage</span><span>Gartenpartys</span><span>Vereinsfeste</span><span>Jubiläen</span><span>Private Dinner</span></div>
+    <div class="events">
+      <div><span class="lab" style="color:#6d6d69">Für jeden Anlass</span>
+        <div class="occ rv" style="margin-top:22px"><span>Hochzeiten</span><span>Firmenfeiern</span><span>Geburtstage</span><span>Gartenpartys</span><span>Vereinsfeste</span><span>Jubiläen</span><span>Private Dinner</span></div>
+        <figure class="ev-small rv"><img loading="lazy" src="assets/e18.webp" alt="Salat im Glas auf Holzbock"></figure>
+      </div>
+      <figure class="ev-tall rv"><img loading="lazy" src="assets/e16.webp" alt="Getränkekarte und grüne Suppe in der Bügelflasche bei einer Feier"></figure>
+    </div>
   </div>
+</section>
+
+<!-- ============ DUO ============ -->
+<section class="duo">
+  <figure class="duo-a"><img data-par="-0.08" loading="lazy" src="assets/e19.webp" alt="Pimientos mit Garnelen auf Bananenblatt"><figcaption class="lab">Pimientos mit Garnelen</figcaption></figure>
+  <figure class="duo-b"><img data-par="0.1" loading="lazy" src="assets/e20.webp" alt="Mini Cheeseburger auf Holzbrett"><figcaption class="lab">Mini Cheeseburger</figcaption></figure>
+  <figure class="duo-c"><img data-par="-0.06" loading="lazy" src="assets/e17.webp" alt="Mini Wrap Hähnchen"><figcaption class="lab">Mini Wrap Hähnchen</figcaption></figure>
 </section>
 
 <!-- ============ PAKETE ============ -->
@@ -614,7 +665,9 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(hero);
   addEventListener('scroll',()=>{const y=scrollY;if(y<innerHeight*1.2)media.style.transform=`translate3d(0,${y*.28}px,0)`},{passive:true});
   const v=document.getElementById('heroVideo');
-  v.addEventListener('canplay',()=>{v.classList.add('ok');media.querySelector('img').style.display='none';v.play().catch(()=>{})});
+  v.addEventListener('canplay',()=>{v.classList.add('ok');media.querySelectorAll('img').forEach(i=>i.style.display='none');v.play().catch(()=>{})});
+  const slides=[...media.querySelectorAll('img')];let si=0;
+  setInterval(()=>{if(v.classList.contains('ok'))return;slides[si].classList.remove('on');si=(si+1)%slides.length;slides[si].classList.add('on')},6500);
   v.addEventListener('error',()=>v.remove());
 })();
 
@@ -729,6 +782,13 @@ document.querySelectorAll('.rv,.h2').forEach(el=>io.observe(el));
   tr.querySelectorAll('.hs-item').forEach(f=>f.addEventListener('click',()=>{const i=f.querySelector('img');lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('open')}));
   lb.addEventListener('click',()=>lb.classList.remove('open'));
   addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+})();
+
+/* Parallax für Foto-Bänder */
+(function(){
+  const els=[...document.querySelectorAll('[data-par]')];
+  function upd(){const vh=innerHeight;els.forEach(el=>{const r=el.parentElement.getBoundingClientRect();if(r.bottom<-100||r.top>vh+100)return;const c=(r.top+r.height/2-vh/2);el.style.transform='translate3d(0,'+(c*parseFloat(el.dataset.par)*-1)+'px,0)'})}
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
 })();
 
 /* Cursor */
