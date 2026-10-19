@@ -704,6 +704,27 @@ img{image-rendering:auto}
 .contact .form-msg{color:#c43c0a;min-height:1.2em}
 @media(max-width:950px){.c-grid2{grid-template-columns:1fr}.c-card{min-height:420px}}
 @media(max-width:560px){.c-form{grid-template-columns:1fr}.c-lead{max-width:none}}
+
+/* ================= Konturschrift als Stilmittel ================= */
+.h2 .o{color:transparent;-webkit-text-stroke:2px #fff;padding-right:.04em}
+.light .h2 .o,.contact .h2 .o{-webkit-text-stroke-color:#111}
+.pband-txt p .o{color:transparent;-webkit-text-stroke:2px #fff;text-shadow:none}
+.obband{position:relative;min-height:min(86vh,820px);display:grid;align-items:center;overflow:hidden;background:#000}
+.obband-media{position:absolute;inset:0;overflow:hidden}
+.obband-media img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;will-change:transform}
+.obband::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.45) 60%,rgba(0,0,0,.2)),linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.1) 40%,rgba(0,0,0,.8))}
+.obband-txt{position:relative;z-index:2;padding:0 var(--pad);max-width:1700px;margin:0 auto;width:100%}
+.obband-txt .lab{color:#ffb040}
+.obband-txt p{display:flex;flex-direction:column;font-family:var(--head);text-transform:uppercase;font-size:clamp(3.4rem,15vw,15rem);line-height:.98;margin-top:12px;color:#fff;letter-spacing:-.005em}
+.obband-txt p .o{color:transparent;-webkit-text-stroke:2.5px #fff}
+.obband-txt p span:last-child{background:var(--fire);-webkit-background-clip:text;background-clip:text;color:transparent}
+.obband::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--fire-h);z-index:3}
+.bgword{overflow-x:clip}
+.bgword::before{content:attr(data-word);position:absolute;right:-2vw;top:6%;font-family:var(--head);font-size:clamp(9rem,30vw,32rem);line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.09);pointer-events:none;z-index:0;white-space:nowrap}
+.bgword>.wrap{position:relative;z-index:1}
+#leistungen.bgword::before{right:auto;left:-3vw;top:auto;bottom:4%}
+#faq.bgword::before{top:auto;bottom:-2%}
+@media(max-width:700px){.bgword::before{-webkit-text-stroke-width:1.5px;font-size:clamp(7rem,42vw,14rem)}.obband-txt p .o{-webkit-text-stroke-width:1.8px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -788,7 +809,7 @@ img{image-rendering:auto}
 </div></div>
 
 <!-- ============ MANIFEST ============ -->
-<section class="sec manifest" id="ueber-uns">
+<section class="sec manifest bgword" id="ueber-uns" data-word="BBQ">
   <div class="wrap">
     <div class="m-top">
       <div class="m-left">
@@ -827,12 +848,12 @@ img{image-rendering:auto}
 </section>
 
 <!-- ============ LEISTUNGEN ============ -->
-<section class="sec leist" id="leistungen">
+<section class="sec leist bgword" id="leistungen" data-word="GRILL">
   <div class="wrap">
     <div class="leist-head">
       <div>
         <div class="idx lab">Unsere Leistungen</div>
-        <h2 class="h2"><span class="mask"><span>Das machen</span></span><span class="mask"><span><i>wir</i> für euch</span></span></h2>
+        <h2 class="h2"><span class="mask"><span>Das machen</span></span><span class="mask"><span><i>wir</i> <span class="o">für euch</span></span></span></h2>
       </div>
       <p class="rv">Von der kleinen Feier bis zum großen Event: Wir kochen, grillen, schenken aus und planen mit euch zusammen.</p>
     </div>
@@ -858,7 +879,7 @@ img{image-rendering:auto}
     </figure>
     <div class="team-txt">
       <div class="idx lab">Das Team</div>
-      <h2 class="h2"><span class="mask"><span>Die Jungs</span></span><span class="mask"><span><i>hinter dem</i> Feuer</span></span></h2>
+      <h2 class="h2"><span class="mask"><span>Die Jungs</span></span><span class="mask"><span><i>hinter dem</i> <span class="o">Feuer</span></span></span></h2>
       <p class="rv">Alex, Chris und Sunny. Drei Leidenschaften, ein Feuer. Wir kochen, grillen und planen mit Herz.</p>
       <div class="team-names rv"><span>Alex</span><span>Chris</span><span>Sunny</span></div>
       <a class="btn solid rv" href="#anfrage">Lernt uns kennen</a>
@@ -866,12 +887,18 @@ img{image-rendering:auto}
   </div>
 </section>
 
+<!-- ============ KONTURBAND ============ -->
+<section class="obband" aria-label="Feuer. Fleisch. Leidenschaft.">
+  <div class="obband-media"><img data-par="0.12" loading="lazy" src="assets/e25.webp" alt=""></div>
+  <div class="obband-txt"><span class="lab">3Beasts BBQ</span><p><span>Feuer.</span><span class="o">Fleisch.</span><span>Leiden&shy;schaft.</span></p></div>
+</section>
+
 <!-- ============ BEASTS ============ -->
 <section class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="idx lab">(02) Die drei Beasts</div>
     <div class="bhead">
-      <h2 class="h2"><span class="mask"><span>Drei Beasts.</span></span><span class="mask"><span><i>ein</i> Feuer.</span></span></h2>
+      <h2 class="h2"><span class="mask"><span>Drei Beasts.</span></span><span class="mask"><span><i>ein</i> <span class="o">Feuer.</span></span></span></h2>
       <div class="bh-photos" aria-hidden="true">
         <figure class="pimg"><img data-par="0.06" loading="lazy" src="assets/e19.webp" alt=""></figure>
         <figure class="pimg"><img data-par="-0.06" loading="lazy" src="assets/e28.webp" alt=""></figure>
@@ -890,7 +917,7 @@ img{image-rendering:auto}
 <!-- ============ BAND: Hand ============ -->
 <section class="pband">
   <div class="pband-media"><img data-par="0.12" loading="lazy" src="assets/e14.webp" alt="Hand nimmt einen Tomaten-Mozzarella-Spieß"></div>
-  <div class="pband-txt"><span class="lab">Frisch angerichtet</span><p class="rv">Mit Liebe <i>angerichtet.</i><br>Mit Gastfreundschaft <i>serviert.</i></p></div>
+  <div class="pband-txt"><span class="lab">Frisch angerichtet</span><p class="rv">Mit Liebe <i>angerichtet.</i><br><span class="o">Mit Gastfreundschaft</span> <i>serviert.</i></p></div>
 </section>
 
 <!-- ============ KÜCHE ============ -->
@@ -898,7 +925,7 @@ img{image-rendering:auto}
   <div class="wrap">
     <div class="idx lab" style="color:#6d6d69">(03) Unsere Küche</div>
     <div class="menu-head">
-      <h2 class="h2"><span class="mask"><span>Das kommt</span></span><span class="mask"><span><i>auf den</i> Tisch</span></span></h2>
+      <h2 class="h2"><span class="mask"><span>Das kommt</span></span><span class="mask"><span><i>auf den</i> <span class="o">Tisch</span></span></span></h2>
       <p class="rv">Eine Auswahl dessen, was wir für euch zubereiten. Das Menü stellen wir gemeinsam zusammen – passend zu Anlass, Gästezahl und Geschmack.</p>
     </div>
     <div class="menu rv">
@@ -953,14 +980,14 @@ img{image-rendering:auto}
 <!-- ============ BAND: Stand ============ -->
 <section class="pband">
   <div class="pband-media"><img data-par="0.1" loading="lazy" src="assets/e30.webp" alt="3Beasts-BBQ-Stand mit Banner, Burgern, Salaten und Spießen" style="object-position:50% 40%"></div>
-  <div class="pband-txt"><span class="lab">Live am Grill</span><p class="rv">Wir füllen euer Event <i>mit Geschmack.</i></p></div>
+  <div class="pband-txt"><span class="lab">Live am Grill</span><p class="rv"><span class="o">Wir füllen euer Event</span> <i>mit Geschmack.</i></p></div>
 </section>
 
 <!-- ============ ABLAUF ============ -->
 <section class="sec light" id="ablauf">
   <div class="wrap">
     <div class="idx lab" style="color:#6d6d69">(05) Ablauf</div>
-    <h2 class="h2"><span class="mask"><span>Von der Anfrage</span></span><span class="mask"><span><i>zum</i> Feuer</span></span></h2>
+    <h2 class="h2"><span class="mask"><span>Von der Anfrage</span></span><span class="mask"><span><i>zum</i> <span class="o">Feuer</span></span></span></h2>
     <div class="steps">
       <div class="step rv"><div class="big">01</div><h3>Anfrage</h3><p>Ihr schickt uns Datum, Anlass und Gästezahl. Dauert zwei Minuten.</p></div>
       <div class="step rv d1"><div class="big">02</div><h3>Angebot</h3><p>Wir melden uns persönlich und stellen mit euch das Menü zusammen.</p></div>
@@ -985,7 +1012,7 @@ img{image-rendering:auto}
 </section>
 
 <!-- ============ PAKETE ============ -->
-<section class="sec" id="pakete">
+<section class="sec bgword" id="pakete" data-word="BEAST">
   <div class="wrap">
     <div class="idx lab">(06) Pakete</div>
     <h2 class="h2"><span class="mask"><span>Such dir dein</span></span><span class="mask"><span><span class="o">Beast</span> aus</span></span></h2>
@@ -1032,7 +1059,7 @@ img{image-rendering:auto}
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="sec" id="faq" style="padding-top:0">
+<section class="sec bgword" id="faq" style="padding-top:0" data-word="FEUER">
   <div class="wrap faq-grid">
     <div><div class="idx lab">(07) FAQ</div><h2 class="h2"><span class="mask"><span>Gut</span></span><span class="mask"><span><i>zu wissen</i></span></span></h2></div>
     <div class="rv">
@@ -1050,7 +1077,7 @@ img{image-rendering:auto}
 <section class="sec contact" id="anfrage">
   <div class="wrap">
     <div class="idx lab" style="color:#6d6d69">(08) Anfrage</div>
-    <h2 class="h2"><span class="mask"><span>Lasst uns</span></span><span class="mask"><span><i>Feuer</i> machen</span></span></h2>
+    <h2 class="h2"><span class="mask"><span>Lasst uns</span></span><span class="mask"><span><i>Feuer</i> <span class="o">machen</span></span></span></h2>
     <div class="c-grid2">
       <aside class="c-card rv">
         <img class="c-bg" loading="lazy" src="assets/e25.webp" alt="">
