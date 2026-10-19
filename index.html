@@ -98,8 +98,10 @@ footer .wrap{position:relative;z-index:1}
 @media(max-width:700px){.intro-btns{left:var(--pad);right:var(--pad);bottom:110px;flex-direction:column}.intro-btns .btn{justify-content:center}}
 
 /* ---------- NAV ---------- */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;mix-blend-mode:difference;color:#fff;transform:translateY(-110%);transition:transform 1s var(--ease)}
-nav.show{transform:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;mix-blend-mode:difference;color:#fff;opacity:0;pointer-events:none;transition:opacity .9s}
+nav.show{opacity:1;pointer-events:auto}
+.brand img{opacity:0}
+nav.ready .brand img{opacity:1}
 .nav-in{display:flex;justify-content:space-between;align-items:center;padding:26px var(--pad)}
 .brand{font-family:var(--head);font-size:1.7rem;letter-spacing:.03em;text-transform:uppercase;line-height:1}
 .brand{display:flex;align-items:center;gap:14px}
@@ -565,8 +567,8 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
     c.getBoundingClientRect();
     c.style.transform='translate('+(padL-r.left)+'px,'+(26-r.top)+'px) scale('+(size/r.width)+')';
     setTimeout(()=>{document.body.classList.add('go')},700);
-    setTimeout(()=>{document.getElementById('nav').classList.add('show')},1300);
-    setTimeout(()=>{c.remove()},2300);
+    setTimeout(()=>{document.getElementById('nav').classList.add('show')},1000);
+    setTimeout(()=>{document.getElementById('nav').classList.add('ready');c.remove()},1560);
     setTimeout(()=>{run=false;intro.remove()},1600);
   }
   let entered=false;
