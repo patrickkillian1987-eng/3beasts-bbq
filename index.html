@@ -755,6 +755,12 @@ img{image-rendering:auto}
 .duo figure{background:#0b0b0b}
 .duo img{top:-16%;height:132%}
 .duo figure{box-shadow:0 22px 50px rgba(0,0,0,.45)}
+
+/* Schriftzug im Logo: weiches Glimmen wie Glut, ohne Verzerrung */
+.il-word{animation:wordGlow 3.2s ease-in-out infinite alternate}
+@keyframes wordGlow{0%{filter:brightness(1) drop-shadow(0 0 0 rgba(255,110,30,0))}50%{filter:brightness(1.12) drop-shadow(0 0 7px rgba(255,120,30,.35))}100%{filter:brightness(1.22) drop-shadow(0 0 14px rgba(255,130,40,.55))}}
+.flogo .il-word{animation-name:wordGlowS}
+@keyframes wordGlowS{0%{filter:brightness(1)}100%{filter:brightness(1.2) drop-shadow(0 0 3px rgba(255,130,40,.5))}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -768,7 +774,7 @@ img{image-rendering:auto}
   <canvas id="introFx"></canvas>
   <div class="intro-glow"></div>
   <div class="intro-meta lab"><span>3Beasts BBQ</span><span>Catering vom Feuer</span></div>
-  <div class="intro-logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=5" alt="3Beasts BBQ"><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""></div>
+  <div class="intro-logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=5" alt="3Beasts BBQ"><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""><img class="il-word" src="assets/logo_word.png?v=5" alt=""></div>
   <div class="intro-count"><span id="cnt">0</span><small>%</small></div>
   <div class="intro-btns show" id="introBtns">
     <button class="btn" id="enterQuiet" style="color:#fff;padding:14px 28px">Überspringen</button>
@@ -779,7 +785,7 @@ img{image-rendering:auto}
 <!-- ============ NAV ============ -->
 <nav id="nav">
   <div class="nav-in">
-    <a href="#top" class="brand"><span class="flogo" role="img" aria-label="3Beasts BBQ Logo"><img class="il-base" src="assets/logo_base.png?v=5" alt=""><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""></span><span>3Beasts BBQ</span></a>
+    <a href="#top" class="brand"><span class="flogo" role="img" aria-label="3Beasts BBQ Logo"><img class="il-base" src="assets/logo_base.png?v=5" alt=""><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""><img class="il-word" src="assets/logo_word.png?v=5" alt=""></span><span>3Beasts BBQ</span></a>
     <ul class="links">
       <li><a href="#ueber-uns">Über uns</a></li>
       <li><a href="#kueche">Küche</a></li>
@@ -1145,7 +1151,7 @@ img{image-rendering:auto}
 <footer>
   <canvas class="foot-fire" id="footFire" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div class="foot-logo flogo rv" role="img" aria-label="3Beasts BBQ Logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=5" alt=""><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""></div>
+    <div class="foot-logo flogo rv" role="img" aria-label="3Beasts BBQ Logo"><div class="il-halo"></div><img class="il-base" src="assets/logo_base.png?v=5" alt=""><img class="il-flame" src="assets/logo_flame.png?v=5" alt=""><img class="il-word" src="assets/logo_word.png?v=5" alt=""></div>
     <div class="foot-big" aria-hidden="true">3Beasts BBQ</div>
     <div class="foot-row lab">
       <div class="fl"><a href="#ueber-uns">Über uns</a><a href="#kueche">Küche</a><a href="#galerie">Galerie</a><a href="#pakete">Pakete</a><a href="#anfrage">Kontakt</a></div>
