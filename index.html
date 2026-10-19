@@ -514,6 +514,12 @@ details[open] summary{color:var(--fire1)}
 .pack:hover li,.pack.hot li,.pack:hover h3,.pack.hot h3,.pack:hover .for,.pack.hot .for,.pack:hover .price,.pack.hot .price{color:#111;text-shadow:none}
 .pack:hover li,.pack.hot li{border-color:rgba(0,0,0,.28)}
 .pack:hover li::before,.pack.hot li::before{background:var(--ember)}
+.lphoto{background:none!important;border:0!important;box-shadow:none!important;padding:0;aspect-ratio:auto;isolation:isolate}
+.lphoto::before,.lphoto::after{display:none!important}
+.lphoto img{display:block;z-index:0;will-change:auto}
+.lphoto .lp-txt{z-index:2}
+.lphoto:hover{transform:none;border:0}
+.lphoto .lp-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.82));pointer-events:none}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -649,7 +655,7 @@ details[open] summary{color:var(--fire1)}
       <article class="lc rv d0"><span class="no">05</span><svg viewBox="-38 -38 76 76" aria-hidden="true"><path d="M0 30V10"/><path d="M0 10C-19-4-15-30 0-30C15-30 19-4 0 10Z"/><path d="M0 10C-8-6-6-28 0-30C6-28 8-6 0 10Z"/><rect x="-3" y="10" width="6" height="8" rx="2"/></svg><h3>Wohnzimmer kochen</h3><p>Wir kochen bei euch zuhause, ganz privat.</p></article>
       <article class="lc rv d1"><span class="no">06</span><svg viewBox="-38 -38 76 76" aria-hidden="true"><path d="M-18-30V-10C-18-2-6-2-6-10V-30M-12-30V-6M-12-2V30"/><path d="M14-30C22-20 22-2 14 4V30H10V-30Z"/></svg><h3>Planung</h3><p>Von der Menüwahl bis zum Aufbau, gemeinsam mit euch.</p></article>
       <article class="lc rv d2"><span class="no">07</span><svg viewBox="-38 -38 76 76" aria-hidden="true"><rect x="-16" y="-20" width="28" height="44" rx="3"/><path d="M12-12H22C29-12 29 12 22 12H12"/><path d="M-16-20C-21-30-8-34-4-28C0-34 12-32 12-20"/><path d="M-8-8V16M0-8V16"/></svg><h3>Getränke</h3><p>Bier, Wein, Softdrinks und mehr auf Anfrage.</p></article>
-      <a class="lc lphoto rv d3" href="#anfrage"><img loading="lazy" src="assets/e25.webp" alt="Fleischspieße über Glut und Flammen"><div class="lp-txt"><span class="lab">Euer Event?</span><strong>Jetzt anfragen</strong><span class="lp-arr">→</span></div></a>
+      <a class="lc lphoto rv d3" href="#anfrage"><img loading="lazy" src="assets/e25.webp" alt="Fleischspieße über Glut und Flammen"><span class="lp-shade"></span><div class="lp-txt"><span class="lab">Euer Event?</span><strong>Jetzt anfragen</strong><span class="lp-arr">→</span></div></a>
     </div>
   </div>
 </section>
