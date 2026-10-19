@@ -1007,6 +1007,13 @@ img{image-rendering:auto}
 .mtabs button{transition:padding .4s var(--ease),color .3s,background .3s}
 .mtabs button.on span{background:var(--fire);-webkit-background-clip:text;background-clip:text;color:transparent}
 @media(max-width:700px){.mph-n{width:64px;height:64px;font-size:.52rem}.mph-n b{font-size:1.6rem}.mp-head h3{font-size:clamp(2.2rem,11vw,3.6rem)}}
+
+/* Zahlen in der Speisekarte dunkel */
+.mtabs button em{color:#111!important}
+.mtabs button small{color:#111!important;border-color:rgba(0,0,0,.55)!important}
+.mtabs button.on small{color:#1a0800!important}
+.mg h4::after{color:#111!important}
+.mp-head .mph-n,.mp-head .mph-n b{color:#1a0800}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
