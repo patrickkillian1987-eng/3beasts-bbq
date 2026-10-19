@@ -10,9 +10,8 @@
 <meta property="og:description" content="Wir grillen. Ihr genießt. Catering mit echtem Feuer.">
 <meta property="og:image" content="assets/6.webp">
 <link rel="icon" href="assets/logo_color.png?v=6">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/Anton-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
 <style>
 :root{
   --k:#000; --k2:#0b0b0b; --k3:#151515;
@@ -1022,6 +1021,49 @@ img{image-rendering:auto}
 .credit{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-family:var(--lab);font-weight:500;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;color:#8d8d8d}
 .credit a{color:#fff;border-bottom:1px solid rgba(255,138,42,.7);padding-bottom:1px;transition:color .3s,border-color .3s}
 .credit a:hover{color:#ffb040;border-color:#ffb040}
+
+/* ================= Rechtstexte ================= */
+.legal{padding-top:clamp(40px,5vw,70px)}
+.legal-in{max-width:880px}
+.legal-in h2{font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:clamp(1.7rem,2.6vw,2.4rem);line-height:1.15;margin:clamp(28px,3.4vw,44px) 0 12px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.18);position:relative}
+.legal-in h2::after{content:"";position:absolute;left:0;bottom:-1px;width:54px;height:3px;background:var(--fire-h)}
+.legal-in p,.legal-in li{color:#e6e6e6;font-size:1.12rem;line-height:1.6;margin-bottom:12px}
+.legal-in ul{margin:0 0 12px 1.2em}
+.legal-in li{margin-bottom:8px}
+.legal-in a{color:#ffb040;border-bottom:1px solid rgba(255,176,64,.5)}
+.legal-in a:hover{color:#fff}
+.legal-in code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;background:rgba(255,255,255,.1);padding:1px 6px}
+.todo{background:#ffe27a;color:#3a2a00;padding:1px 7px;border-radius:3px;font-weight:600;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.legal-hint{background:rgba(255,226,122,.12);border:1px solid rgba(255,226,122,.5);border-left:4px solid #ffe27a;padding:14px 18px}
+/* ================= Cookie-Hinweis ================= */
+.cc{position:fixed;left:0;right:0;bottom:0;z-index:500;padding:0 max(14px,env(safe-area-inset-left,0px)) max(14px,env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none;transform:translateY(120%);transition:transform .6s var(--ease)}
+.cc.on{transform:none}
+.cc[hidden]{display:none}
+.cc-box{pointer-events:auto;width:min(980px,100%);background:rgba(10,10,10,.97);border:1px solid rgba(255,255,255,.22);border-top:3px solid transparent;border-image:linear-gradient(90deg,#ffbe46,#ff5c16) 1;box-shadow:0 -10px 60px rgba(0,0,0,.6);padding:clamp(18px,2.4vw,30px);display:grid;gap:18px;color:#fff;backdrop-filter:blur(10px)}
+.cc-k{color:#ffb040}
+.cc-main h2{font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.1;margin:6px 0 8px}
+.cc-main p{color:#dcdcdc;font-size:1.05rem;line-height:1.5;max-width:70ch}
+.cc-main a{color:#ffb040;border-bottom:1px solid rgba(255,176,64,.5)}
+.cc-set{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.16)}
+.cc-set[hidden]{display:none}
+.cc-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);cursor:pointer}
+.cc-row b{display:block;font-family:var(--lab);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.95rem}
+.cc-row small{display:block;color:#b5b5b5;font-size:.95rem;margin-top:2px}
+.cc-row input{appearance:none;flex:0 0 auto;width:48px;height:28px;border-radius:100px;background:#3a3a3a;position:relative;cursor:pointer;transition:background .3s}
+.cc-row input::after{content:"";position:absolute;left:3px;top:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .3s var(--ease)}
+.cc-row input:checked{background:linear-gradient(90deg,#ffbe46,#ff5c16)}
+.cc-row input:checked::after{transform:translateX(20px)}
+.cc-row input:disabled{opacity:.6;cursor:not-allowed}
+.cc-row input:focus-visible{outline:2px solid #ffb040;outline-offset:2px}
+.cc-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.cc-b{font-family:var(--lab);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem;padding:14px 24px;border-radius:100px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.cc-b:hover{background:#fff;color:#000}
+.cc-b:focus-visible{outline:2px solid #ffb040;outline-offset:3px}
+.cc-b.cc-all,.cc-b.cc-save{background:linear-gradient(90deg,#ffbe46,#ff6a1a);border-color:transparent;color:#1a0800}
+.cc-b.cc-all:hover,.cc-b.cc-save:hover{filter:brightness(1.1);color:#1a0800}
+.cc-b[hidden]{display:none}
+@media(max-width:600px){.cc-btns{flex-direction:column}.cc-b{width:100%;text-align:center}.cc-box{max-height:88vh;overflow:auto}}
+.wa-float{transition:bottom .4s var(--ease),transform .4s var(--ease)}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1471,7 +1513,7 @@ img{image-rendering:auto}
         <div class="fld"><label for="f-guests">Gäste (ca.)</label><input id="f-guests" name="guests" type="number" min="1" inputmode="numeric" placeholder="z. B. 60"></div>
         <div class="fld full"><label for="f-msg">Nachricht</label><textarea id="f-msg" name="msg" placeholder="Ort, Wünsche, Allergien …"></textarea></div>
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="full consent"><input type="checkbox" id="f-ok" required><span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Details in der <a href="#" data-privacy>Datenschutzerklärung</a>.</span></label>
+        <label class="full consent"><input type="checkbox" id="f-ok" required><span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Details in der <a href="#/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span></label>
         <div class="form-msg" id="msg" role="status"></div>
         <button class="cf-send full" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-7.5 13.4L3.3 20.8l4.3-1.1A8.8 8.8 0 1 0 12 3.2z"/><path d="M9.2 8.3c-.3.9 0 2.2 1.2 3.7s2.5 2.4 3.6 2.6c.8.1 1.4-.4 1.6-1l-1.7-.9-.8.7c-.8-.3-2-1.3-2.4-2.2l.7-.8-.8-1.8c-.4-.3-1.1-.3-1.6.7z" fill="currentColor" stroke="none"/></svg><span>Per WhatsApp senden</span></button>
         <p class="cf-note full">Unverbindlich. Eure Anfrage öffnet sich als fertige WhatsApp-Nachricht.</p>
@@ -1480,6 +1522,69 @@ img{image-rendering:auto}
   </div>
 </section>
 
+</div>
+<div class="view" data-view="impressum" id="v-impressum" hidden>
+<section class="phero"><div class="wrap"><div class="crumb lab"><a href="#/">Start</a><i>/</i><span>Impressum</span></div><h1>Impressum</h1><p>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG).</p></div></section>
+<section class="sec legal"><div class="wrap legal-in">
+<p class="legal-hint"><b>Hinweis zur Vorschau:</b> Die gelb markierten Felder müssen vor der Veröffentlichung mit den echten Angaben ersetzt werden. Das Impressum muss vollständig und korrekt sein.</p>
+<h2>Anbieter</h2>
+<p>3Beasts BBQ<br><mark class="todo">[Vollständiger Name bzw. Firmierung, z. B. Vorname Nachname / Rechtsform]</mark><br><mark class="todo">[Straße und Hausnummer]</mark><br><mark class="todo">[PLZ und Ort]</mark></p>
+<p>Vertreten durch: <mark class="todo">[Inhaber bzw. vertretungsberechtigte Person(en)]</mark></p>
+<h2>Kontakt</h2>
+<p>Telefon / WhatsApp: <a href="tel:+4915234239839">0152 34239839</a><br>E-Mail: <a href="mailto:3beasts.bbq@gmail.com">3beasts.bbq@gmail.com</a><br>Instagram: <a href="https://www.instagram.com/3beasts.bbq/" target="_blank" rel="noopener">@3beasts.bbq</a></p>
+<h2>Umsatzsteuer-ID und Register</h2>
+<p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: <mark class="todo">[USt-IdNr., falls vorhanden, sonst Zeile streichen]</mark><br>Handelsregister / Gewerbeanmeldung: <mark class="todo">[Registergericht und Nummer, falls vorhanden, sonst Zeile streichen]</mark></p>
+<h2>Verantwortlich für den Inhalt</h2>
+<p>Verantwortlich für journalistisch-redaktionelle Inhalte gemäß § 18 Abs. 2 MStV: <mark class="todo">[Name und Anschrift, wie oben]</mark></p>
+<h2>Verbraucherstreitbeilegung</h2>
+<p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. <mark class="todo">[Bitte prüfen und ggf. anpassen]</mark></p>
+<h2>Haftung für Inhalte</h2>
+<p>Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine Haftung ist erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entfernen wir diese Inhalte umgehend.</p>
+<h2>Haftung für Links</h2>
+<p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir keine Gewähr. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Links umgehend.</p>
+<h2>Urheberrecht</h2>
+<p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Alle Fotos, das Logo und die Texte sind Eigentum von 3Beasts BBQ.</p>
+<h2>Webdesign und Umsetzung</h2>
+<p><a href="https://blueventures.online" target="_blank" rel="noopener">BlueVentures Digitalagentur</a></p>
+</div></section>
+</div>
+
+<div class="view" data-view="datenschutz" id="v-datenschutz" hidden>
+<section class="phero"><div class="wrap"><div class="crumb lab"><a href="#/">Start</a><i>/</i><span>Datenschutz</span></div><h1>Daten<span class="o">schutz</span></h1><p>Welche Daten wir verarbeiten und warum. Verständlich erklärt.</p></div></section>
+<section class="sec legal"><div class="wrap legal-in">
+<p class="legal-hint"><b>Hinweis zur Vorschau:</b> Die gelb markierten Felder müssen vor der Veröffentlichung mit den echten Angaben ersetzt werden. Wir empfehlen, den Text einmal von einer Rechtsberatung oder einem Datenschutz-Generator (z. B. eRecht24) prüfen zu lassen.</p>
+<h2>1. Verantwortlicher</h2>
+<p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>3Beasts BBQ, <mark class="todo">[Name / Firma]</mark>, <mark class="todo">[Straße Hausnummer]</mark>, <mark class="todo">[PLZ Ort]</mark><br>Telefon: 0152 34239839 · E-Mail: <a href="mailto:3beasts.bbq@gmail.com">3beasts.bbq@gmail.com</a></p>
+<h2>2. Überblick: Was wir (nicht) tun</h2>
+<ul>
+<li>Wir setzen <b>keine Tracking- oder Analyse-Dienste</b> ein (kein Google Analytics, kein Meta-Pixel, keine Werbe-Cookies).</li>
+<li>Wir binden <b>keine externen Schriften, Karten oder Videos</b> ein. Alle Schriftarten liegen auf unserem eigenen Server. Beim Aufruf der Seite wird deshalb keine Verbindung zu Google Fonts aufgebaut.</li>
+<li>Es werden <b>keine Daten aus dem Anfrageformular auf einem Server gespeichert.</b> Das Formular erstellt eine WhatsApp-Nachricht, die Sie selbst absenden (siehe Abschnitt 5).</li>
+</ul>
+<h2>3. Hosting und Server-Logfiles</h2>
+<p>Diese Website wird bei <mark class="todo">[Hosting-Anbieter, aktuell: GitHub Pages der GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA – bitte bei Umzug auf einen anderen Anbieter anpassen]</mark> gehostet. Beim Aufruf der Seiten werden technisch notwendige Verbindungsdaten verarbeitet, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs, die angeforderte Seite, der Browsertyp sowie die Menge der übertragenen Daten. Das ist technisch erforderlich, damit die Seite ausgeliefert und die Sicherheit gewährleistet werden kann.</p>
+<p>Rechtsgrundlage ist unser berechtigtes Interesse an einem sicheren und effizienten Betrieb der Website (Art. 6 Abs. 1 lit. f DSGVO). Bei Hosting in den USA stützt sich die Übermittlung auf den Angemessenheitsbeschluss der EU-Kommission zum EU-US Data Privacy Framework, soweit der Anbieter dort zertifiziert ist, ersatzweise auf Standardvertragsklauseln. Mit dem Hosting-Anbieter besteht ein Vertrag zur Auftragsverarbeitung bzw. dessen Datenschutzbestimmungen gelten.</p>
+<h2>4. Cookies, Speicher im Browser und Ihre Einwilligung</h2>
+<p>Unsere Website setzt <b>keine Cookies</b>. Wir nutzen jedoch den Speicher Ihres Browsers (Local Storage und Session Storage) für folgende Zwecke:</p>
+<ul>
+<li><b>Einwilligungsauswahl</b> (Local Storage, Schlüssel <code>3b-consent</code>): Speichert, welche Auswahl Sie im Hinweisfenster getroffen haben, damit wir Sie nicht bei jedem Besuch erneut fragen. Technisch notwendig, Rechtsgrundlage § 25 Abs. 2 Nr. 2 TDDDG und Art. 6 Abs. 1 lit. c, f DSGVO. Löschung: Sie können die Auswahl jederzeit über „Cookie-Einstellungen“ im Footer ändern oder den Browserspeicher löschen.</li>
+<li><b>Intro-Animation</b> (Session Storage, Schlüssel <code>3b-intro</code>): Merkt sich bis zum Schließen des Browsers, dass Sie die Eingangsanimation bereits gesehen haben. Technisch notwendig für die Darstellung, wird beim Schließen des Tabs gelöscht.</li>
+</ul>
+<p>Sollten wir künftig optionale Dienste einsetzen (z. B. eine Statistik oder eingebettete Medien), holen wir vorher Ihre Einwilligung über das Hinweisfenster ein. Ohne Ihre Zustimmung werden diese Dienste nicht geladen. Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft über „Cookie-Einstellungen“ widerrufen.</p>
+<h2>5. Kontaktaufnahme und Anfrage</h2>
+<p><b>Anfrageformular / WhatsApp.</b> Wenn Sie auf „Per WhatsApp senden“ klicken, bereitet Ihr Gerät eine Nachricht in WhatsApp vor, die Ihre Eingaben aus dem Formular enthält (zum Beispiel Name, E-Mail-Adresse, Anlass, Datum, Gästezahl und Ihre Nachricht). Diese Nachricht wird erst übermittelt, wenn Sie sie in WhatsApp selbst absenden. Die Eingaben im Formular werden von uns bis dahin weder gespeichert noch an einen Server gesendet. Für den Versand über WhatsApp ist der Dienstanbieter WhatsApp Ireland Limited (Meta) verantwortlich, es gelten dessen Datenschutzbestimmungen. Rechtsgrundlage für unsere Verarbeitung Ihrer Nachricht ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf Ihre Anfrage) bzw. lit. f (Beantwortung von Anfragen).</p>
+<p><b>E-Mail und Telefon.</b> Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage und für Anschlussfragen. Wir löschen die Daten, sobald sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+<h2>6. Externe Links</h2>
+<p>Diese Seite enthält Links zu Instagram, WhatsApp und zur Website unserer Webdesign-Agentur. Es handelt sich um reine Links. Erst wenn Sie darauf klicken, verlassen Sie unsere Seite, und es gelten die Datenschutzbestimmungen des jeweiligen Anbieters. Es werden keine Inhalte dieser Dienste in unsere Seite eingebunden.</p>
+<h2>7. Ihre Rechte</h2>
+<p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie das Recht, der Verarbeitung zu widersprechen (Art. 21), insbesondere soweit sie auf berechtigten Interessen beruht. Eine erteilte Einwilligung können Sie jederzeit für die Zukunft widerrufen (Art. 7 Abs. 3). Wenden Sie sich dazu an die oben genannte Adresse.</p>
+<h2>8. Beschwerderecht</h2>
+<p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO), insbesondere in dem Bundesland Ihres Wohnorts oder unseres Firmensitzes. Zuständig für uns ist <mark class="todo">[zuständige Aufsichtsbehörde des Bundeslandes, z. B. Der Hessische Beauftragte für Datenschutz und Informationsfreiheit]</mark>.</p>
+<h2>9. Datensicherheit</h2>
+<p>Die Verbindung zu dieser Website erfolgt verschlüsselt (HTTPS). Wir treffen angemessene technische und organisatorische Maßnahmen, um Ihre Daten zu schützen.</p>
+<h2>10. Aktualität</h2>
+<p>Stand: Oktober 2026. Wir passen diese Erklärung an, wenn sich unsere Website oder die Rechtslage ändert.</p>
+</div></section>
 </div>
 </main>
 
@@ -1490,13 +1595,33 @@ img{image-rendering:auto}
     <div class="foot-big" aria-hidden="true">3Beasts BBQ</div>
     <div class="foot-row lab">
       <div class="fl"><a href="#/ueber-uns">Über uns</a><a href="#/speisekarte">Speisekarte</a><a href="#/leistungen">Leistungen</a><a href="#/galerie">Galerie</a><a href="#/anfrage">Kontakt</a></div>
-      <div class="fl"><a href="#" data-imprint>Impressum</a><a href="#" data-privacy>Datenschutz</a></div>
+      <div class="fl"><a href="#/impressum">Impressum</a><a href="#/datenschutz">Datenschutz</a><a href="#" data-cookie>Cookie-Einstellungen</a></div>
       <span>3beasts.bbq@gmail.com · 0152 34239839</span><span>© <span id="yr"></span> 3Beasts BBQ</span>
     </div>
     <p class="credit">Website erstellt von <a href="https://blueventures.online" target="_blank" rel="noopener">BlueVentures Digitalagentur</a></p>
   </div>
 </footer>
 
+<div class="cc" id="cc" role="dialog" aria-modal="false" aria-labelledby="cc-t" hidden>
+  <div class="cc-box">
+    <div class="cc-main">
+      <span class="lab cc-k">Datenschutz</span>
+      <h2 id="cc-t">Eure Privatsphäre ist uns wichtig</h2>
+      <p>Wir setzen auf dieser Website <b>keine Tracking- oder Werbe-Dienste</b> ein und laden keine Inhalte von Drittanbietern nach. Gespeichert wird nur, was für den Betrieb nötig ist. Details findet ihr in der <a href="#/datenschutz">Datenschutzerklärung</a> und im <a href="#/impressum">Impressum</a>.</p>
+    </div>
+    <div class="cc-set" id="cc-set" hidden>
+      <label class="cc-row"><span><b>Notwendig</b><small>Speichert eure Auswahl und die Intro-Animation. Immer aktiv.</small></span><input type="checkbox" checked disabled></label>
+      <label class="cc-row"><span><b>Statistik</b><small>Wird auf dieser Website derzeit nicht eingesetzt.</small></span><input type="checkbox" id="cc-stats"></label>
+      <label class="cc-row"><span><b>Externe Medien</b><small>Wird auf dieser Website derzeit nicht eingesetzt.</small></span><input type="checkbox" id="cc-media"></label>
+    </div>
+    <div class="cc-btns">
+      <button type="button" class="cc-b" id="cc-reject">Nur notwendige</button>
+      <button type="button" class="cc-b" id="cc-more" aria-expanded="false">Einstellungen</button>
+      <button type="button" class="cc-b cc-save" id="cc-save" hidden>Auswahl speichern</button>
+      <button type="button" class="cc-b cc-all" id="cc-all">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
 <script>
 /* ===== KONFIGURATION – echte Daten hier eintragen ===== */
 const CONFIG={whatsapp:'4915234239839',email:'3beasts.bbq@gmail.com',phone:'0152 34239839',instagram:'https://www.instagram.com/3beasts.bbq/',instagramHandle:'@3beasts.bbq'};
@@ -1514,8 +1639,8 @@ const FL_SPR=mkSprite([[0,'rgba(255,238,210,1)'],[.45,'rgba(255,165,80,.62)'],[1
 const SM_SPR=mkSprite([[0,'rgba(255,255,255,1)'],[1,'rgba(255,255,255,0)']]);
 
 /* ===== Unterseiten (Hash-Router) ===== */
-const VIEW_OF={'':'home','/':'home','top':'home','start':'home','home':'home','ueber-uns':'ueber','team':'ueber','speisekarte':'karte','kueche':'karte','leistungen':'leist','pakete':'leist','ablauf':'leist','faq':'leist','galerie':'galerie','anfrage':'anfrage','kontakt':'anfrage'};
-const VIEW_TITLE={home:'3Beasts BBQ – Catering vom Feuer',ueber:'Über uns – 3Beasts BBQ',karte:'Speisekarte – 3Beasts BBQ',leist:'Leistungen & Pakete – 3Beasts BBQ',galerie:'Galerie – 3Beasts BBQ',anfrage:'Anfrage – 3Beasts BBQ'};
+const VIEW_OF={'':'home','/':'home','top':'home','start':'home','home':'home','ueber-uns':'ueber','team':'ueber','speisekarte':'karte','kueche':'karte','leistungen':'leist','pakete':'leist','ablauf':'leist','faq':'leist','galerie':'galerie','anfrage':'anfrage','kontakt':'anfrage','impressum':'impressum','datenschutz':'datenschutz'};
+const VIEW_TITLE={home:'3Beasts BBQ – Catering vom Feuer',ueber:'Über uns – 3Beasts BBQ',karte:'Speisekarte – 3Beasts BBQ',leist:'Leistungen & Pakete – 3Beasts BBQ',galerie:'Galerie – 3Beasts BBQ',anfrage:'Anfrage – 3Beasts BBQ',impressum:'Impressum – 3Beasts BBQ',datenschutz:'Datenschutz – 3Beasts BBQ'};
 const SUB_ANCHOR={pakete:'pakete',ablauf:'ablauf',faq:'faq',team:'team'};
 function parseHash(){const h=decodeURIComponent(location.hash.replace(/^#\/?/,'')).split('/')[0].toLowerCase();return h}
 function currentView(){return VIEW_OF[parseHash()]||'home'}
@@ -1747,6 +1872,27 @@ applyRoute();
   requestAnimationFrame(frame);
 })();
 
+
+/* ===== Einwilligung (Cookie-/Speicher-Hinweis) ===== */
+(function(){
+  const KEY='3b-consent',box=document.getElementById('cc');if(!box)return;
+  const get=()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||'null');return v&&v.v===1?v:null}catch(e){return null}};
+  const set=(c)=>{try{localStorage.setItem(KEY,JSON.stringify({v:1,t:new Date().toISOString(),cat:c}))}catch(e){}};
+  const stats=document.getElementById('cc-stats'),media=document.getElementById('cc-media'),panel=document.getElementById('cc-set');
+  const more=document.getElementById('cc-more'),save=document.getElementById('cc-save'),all=document.getElementById('cc-all'),rej=document.getElementById('cc-reject');
+  function show(){const c=get();if(c){stats.checked=!!c.cat.stats;media.checked=!!c.cat.media}box.hidden=false;requestAnimationFrame(()=>box.classList.add('on'))}
+  function hide(){box.classList.remove('on');setTimeout(()=>{box.hidden=true},400)}
+  function commit(c){set(c);window.consent={necessary:true,stats:!!c.stats,media:!!c.media,has:k=>k==='necessary'||!!c[k]};window.dispatchEvent(new CustomEvent('consentchange',{detail:window.consent}));hide()}
+  window.consent={necessary:true,stats:false,media:false,has:k=>k==='necessary'};
+  const c0=get();if(c0){window.consent={necessary:true,stats:!!c0.cat.stats,media:!!c0.cat.media,has:k=>k==='necessary'||!!c0.cat[k]}}else{setTimeout(show,900)}
+  all.addEventListener('click',()=>commit({necessary:true,stats:true,media:true}));
+  rej.addEventListener('click',()=>commit({necessary:true,stats:false,media:false}));
+  save.addEventListener('click',()=>commit({necessary:true,stats:stats.checked,media:media.checked}));
+  more.addEventListener('click',()=>{const o=panel.hidden;panel.hidden=!o;save.hidden=!o;more.setAttribute('aria-expanded',String(o));more.textContent=o?'Weniger':'Einstellungen'});
+  document.querySelectorAll('[data-cookie]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show()}));
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden&&get())hide()});
+})();
+
 /* ===== UI ===== */
 document.querySelectorAll('img').forEach(i=>{i.decoding='async'});
 addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>40),{passive:true});
@@ -1843,7 +1989,6 @@ document.querySelectorAll('.rv,.h2').forEach(el=>io.observe(el));
   });
 })();
 
-document.querySelectorAll('[data-imprint],[data-privacy]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();alert('Bitte hier euer Impressum bzw. eure Datenschutzerklärung verlinken (rechtlich vorgeschrieben).')}));
 const tg=document.getElementById('menuToggle'),mf=document.getElementById('menuFull');
 if(tg&&mf){tg.addEventListener('click',()=>{const o=mf.hidden;mf.hidden=!o;tg.setAttribute('aria-expanded',String(o));tg.querySelector('span').textContent=o?'Speisekarte schließen':'Komplette Speisekarte ansehen';tg.querySelector('i').textContent=o?'–':'+';if(o)mf.querySelectorAll('.rv').forEach(e=>e.classList.add('in'))})}
 const mt=document.querySelector('.mtabs');
