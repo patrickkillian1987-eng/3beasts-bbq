@@ -1076,6 +1076,26 @@ img{image-rendering:auto}
 .cur{z-index:600!important}
 #sparkTrail{z-index:599!important}
 .cc,.cc *{cursor:none!important}
+
+/* ---------- Inhaber ---------- */
+.owner{background:#0a0a0a;color:#fff;position:relative}
+.owner-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,80px);align-items:center}
+.owner-txt .h2{margin-bottom:clamp(18px,2vw,28px)}
+.owner-txt p{font-size:clamp(1.1rem,1.4vw,1.35rem);line-height:1.5;color:#e8e6e1;max-width:34em}
+.owner-sig{display:grid;gap:4px;margin:clamp(22px,3vw,34px) 0;padding-left:18px;border-left:3px solid #ff7a1f}
+.owner-sig strong{font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:clamp(1.5rem,2.2vw,2.1rem);letter-spacing:.02em;line-height:1.1}
+.owner-sig span{font-family:var(--lab);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.85rem;color:#ffbe46}
+.owner-pics{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(12px,1.6vw,22px);align-items:end}
+.op{margin:0;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.14);background:#111}
+.op::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.45));pointer-events:none}
+.op img{width:100%;height:100%;object-fit:cover;display:block}
+.op-a{aspect-ratio:1/1.05}
+.op-b{aspect-ratio:3/5.2;margin-bottom:clamp(24px,4vw,60px)}
+@media(max-width:900px){
+  .owner-grid{grid-template-columns:1fr}
+  .owner-pics{order:-1}
+  .op-b{margin-bottom:0}
+}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv,.mask>span{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1257,6 +1277,23 @@ img{image-rendering:auto}
       <p class="rv">Alex, Chris und Sunny. Drei Leidenschaften, ein Feuer. Wir kochen, grillen und planen mit Herz.</p>
       <div class="team-names rv"><span>Alex</span><span>Chris</span><span>Sunny</span></div>
       <a class="btn solid rv" href="#anfrage">Lernt uns kennen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INHABER ============ -->
+<section class="sec owner" id="inhaber">
+  <div class="wrap owner-grid">
+    <div class="owner-txt">
+      <div class="idx lab">Der Inhaber</div>
+      <h2 class="h2"><span class="mask"><span>Alex.</span></span><span class="mask"><span><i>Chef am</i> <span class="o">Feuer</span></span></span></h2>
+      <p class="rv">Hinter 3Beasts BBQ steht Alexander „Alex“ Jurkovic. Er führt das Unternehmen, ist euer Ansprechpartner von der ersten Anfrage bis zum letzten Gast und steht selbst am Grill und in der Küche.</p>
+      <div class="owner-sig rv"><strong>Alexander Jurkovic</strong><span>Inhaber &amp; Geschäftsführer</span></div>
+      <a class="btn solid rv" href="#anfrage">Direkt anfragen</a>
+    </div>
+    <div class="owner-pics">
+      <figure class="op op-a rv"><img data-par="-0.04" loading="lazy" src="assets/alex_grill.webp" alt="Alex von 3Beasts BBQ schneidet gegrilltes Fleisch vom Spieß am Grillstand" style="object-position:50% 30%"></figure>
+      <figure class="op op-b rv"><img data-par="0.04" loading="lazy" src="assets/alex_pasta.webp" alt="Alex von 3Beasts BBQ bereitet frische Pasta in der Küche zu" style="object-position:50% 30%"></figure>
     </div>
   </div>
 </section>
